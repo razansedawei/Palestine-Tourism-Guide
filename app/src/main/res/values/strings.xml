@@ -1,9 +1,11 @@
 <resources>
-    <string name="app_name">Android SearchView Action Bar</string>
+    <string name="app_name">Palestine Tourism Guide</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="search_result">Search Result!</string>
     <string name="action_settings">Settings</string>
     <string name="search_hint">Type and Search</string>
     <string name="menu_search">Search</string>
+
+    <string name="map_Key" translatable="false">AIzaSyCoFLhyUfrW0xDdhibOFYHZGc2_Ncd9lCc</string>
 </resources>
