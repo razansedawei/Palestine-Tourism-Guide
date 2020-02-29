@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -24,7 +25,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
-    Button goToMapBtn;
+    Button goToMapBtn ;
 
     @Override
 
