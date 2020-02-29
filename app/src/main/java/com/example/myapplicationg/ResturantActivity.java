@@ -5,13 +5,11 @@ import androidx.appcompat.widget.SearchView;
 
 import android.app.SearchManager;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
-import android.widget.Button;
 
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -20,20 +18,14 @@ import com.smarteist.autoimageslider.SliderView;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class MainActivity extends AppCompatActivity {
+public class ResturantActivity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
-    Button goToMapBtn;
-    Button goToCityBtn;
-
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_resturant);
         sliderView = findViewById(R.id.imageSlider);
 
         adapter = new SliderAdapterExample(this);
@@ -48,28 +40,7 @@ public class MainActivity extends AppCompatActivity {
         sliderView.setScrollTimeInSec(3);
         sliderView.setAutoCycle(true);
         sliderView.startAutoCycle();
-
-        // location code
-        goToMapBtn = findViewById(R.id.map_activity_button);
-        goToMapBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openMapActivity();
-            }
-
-        });
-        //code go to activity city
-
-        goToCityBtn = findViewById(R.id.b1);
-        goToCityBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openCityActivity();
-            }
-        });
     }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         // Inflate menu to add items to action bar if it is present.
@@ -84,17 +55,6 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
-
-    public void openMapActivity(){
-        Intent intent = new Intent(this, MapActivity.class);
-        startActivity(intent);
-    }
-
-    public void openCityActivity(){
-        Intent intent = new Intent(this, CityActivity.class);
-        startActivity(intent);
-    }
-
     public void renewItems(View view) {
         List<SliderItem> sliderItemList = new ArrayList<>();
         //dummy data
@@ -105,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
 
             if (i % 2 == 0) {
                 sliderItem.setImageUrl("https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-           } else {
+            } else {
                 sliderItem.setImageUrl("https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-           }
+            }
             sliderItemList.add(sliderItem);
         }
         adapter.renewItems(sliderItemList);
@@ -124,7 +84,4 @@ public class MainActivity extends AppCompatActivity {
         sliderItem.setImageUrl("https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
         adapter.addItem(sliderItem);
     }
-
-
-    }
-
+}
