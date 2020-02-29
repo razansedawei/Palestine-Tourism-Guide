@@ -13,9 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ResturantActivity"></activity>
+        <activity android:name=".CityActivity" />
+        <activity android:name=".MapActivity" />
         <activity android:name=".redisteract"></activity>
         <activity android:name=".loginact" />
-        <activity android:name=".MapActivity" />
 
 
         <meta-data
