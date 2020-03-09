@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/winBackground"
+    >
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="Nestled in a valley between two striking, arid mountains, Mount Jarzim and Mount Etal, Nablus is very much the nerve centre of the upper West Bank. This beautiful, ancient city – known as the uncrowned Queen of Palestine – is heaving with life, but not yet with tourism. Its most famous exports are olive oil, soap, cotton and carob."
+        android:textColor="@color/colorPrimary"/>
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:text="Cancel"/>
+
+</RelativeLayout>

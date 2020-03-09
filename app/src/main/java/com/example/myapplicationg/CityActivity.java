@@ -1,6 +1,7 @@
 package com.example.myapplicationg;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageButton;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -8,11 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import static com.example.myapplicationg.R.id.bb6;
-
 public class CityActivity extends AppCompatActivity {
     Button goToMapBtnl;
-    Button goToRestBtnl;
+    AppCompatImageButton goToRestBtnl;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -41,7 +40,7 @@ public class CityActivity extends AppCompatActivity {
     }
 
     public void openRestActivity(){
-        Intent intent = new Intent(this, ResturantActivity.class);
+        Intent intent = new Intent(this, ResturantsActivity.class);
         startActivity(intent);
     }
 }

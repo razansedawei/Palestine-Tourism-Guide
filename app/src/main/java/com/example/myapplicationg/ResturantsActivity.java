@@ -18,14 +18,14 @@ import com.smarteist.autoimageslider.SliderView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResturantActivity extends AppCompatActivity {
+public class ResturantsActivity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resturant);
+        setContentView(R.layout.activity_resturants);
         sliderView = findViewById(R.id.imageSlider);
 
         adapter = new SliderAdapterExample(this);
@@ -58,18 +58,14 @@ public class ResturantActivity extends AppCompatActivity {
     public void renewItems(View view) {
         List<SliderItem> sliderItemList = new ArrayList<>();
         //dummy data
-
-        for (int i = 0; i < 10; i++) {
-            SliderItem sliderItem = new SliderItem();
-            sliderItem.setDescription("Slider Item " + i);
-
-            if (i % 2 == 0) {
-                sliderItem.setImageUrl("https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-            } else {
-                sliderItem.setImageUrl("https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-            }
-            sliderItemList.add(sliderItem);
+        for (int i = 0; i < 5; i++) {
+            sliderItemList.add(new SliderItem());
         }
+        sliderItemList.get(0).setImageUrl("https://i.ibb.co/BjLKwkW/1.jpg");
+        sliderItemList.get(1).setImageUrl("https://i.ibb.co/0c2jfsS/2.jpg");
+        sliderItemList.get(2).setImageUrl("https://i.ibb.co/26jqGYx/3.jpg");
+        sliderItemList.get(3).setImageUrl("https://i.ibb.co/y6m8zQM/4.jpg");
+        sliderItemList.get(4).setImageUrl("https://i.ibb.co/C2jdzfy/5.jpg");
         adapter.renewItems(sliderItemList);
     }
 
@@ -84,4 +80,8 @@ public class ResturantActivity extends AppCompatActivity {
         sliderItem.setImageUrl("https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
         adapter.addItem(sliderItem);
     }
+
+
+
+
 }

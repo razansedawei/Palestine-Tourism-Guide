@@ -3,14 +3,17 @@ package com.example.myapplicationg;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
+import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private SliderAdapterExample adapter;
     Button goToMapBtn;
     Button goToCityBtn;
+
 
 
     @Override
@@ -68,8 +72,29 @@ public class MainActivity extends AppCompatActivity {
                 openCityActivity();
             }
         });
-    }
+        goToCityBtn=findViewById(R.id.b1);
+        goToCityBtn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showDialog();
+                return false;
+            }
+        });
 
+    }
+public void showDialog(){
+    final Dialog dialog=new Dialog(MainActivity.this);
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+    dialog.setContentView(R.layout.dialog_design);
+   Button btn=findViewById(R.id.btn);
+   btn.setOnClickListener(new View.OnClickListener() {
+       @Override
+       public void onClick(View v) {
+           dialog.hide();
+       }
+   });
+    dialog.show();
+}
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -100,17 +125,14 @@ public class MainActivity extends AppCompatActivity {
         List<SliderItem> sliderItemList = new ArrayList<>();
         //dummy data
 
-        for (int i = 0; i < 10; i++) {
-            SliderItem sliderItem = new SliderItem();
-            sliderItem.setDescription("Slider Item " + i);
-
-            if (i % 2 == 0) {
-                sliderItem.setImageUrl("https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-           } else {
-                sliderItem.setImageUrl("https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-           }
-            sliderItemList.add(sliderItem);
+        for (int i = 0; i < 5; i++) {
+            sliderItemList.add(new SliderItem());
         }
+        sliderItemList.get(0).setImageUrl("https://i.ibb.co/yBNtrYd/1.jpg");
+        sliderItemList.get(1).setImageUrl("https://i.ibb.co/TvtGhPq/2.jpg");
+        sliderItemList.get(2).setImageUrl("https://i.ibb.co/TB09Pp4/3.jpg");
+        sliderItemList.get(3).setImageUrl("https://i.ibb.co/M9hVKTt/4.jpg");
+        sliderItemList.get(4).setImageUrl("https://i.ibb.co/GRVHmjL/5.jpg");
         adapter.renewItems(sliderItemList);
     }
 

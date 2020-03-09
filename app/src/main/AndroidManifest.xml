@@ -13,27 +13,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResturantActivity"></activity>
+        <activity android:name=".MainActivity">
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".SearchResultsActivity" />
+        </activity>
+        <activity android:name=".ResturantsActivity" />
         <activity android:name=".CityActivity" />
         <activity android:name=".MapActivity" />
-        <activity android:name=".redisteract"></activity>
-        <activity android:name=".loginact" />
-
+        <activity android:name=".LoginActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_Key" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            <meta-data
-                android:name="android.app.default_searchable"
-                android:value=".SearchResultsActivity" />
         </activity>
         <activity
             android:name=".SearchResultsActivity"
