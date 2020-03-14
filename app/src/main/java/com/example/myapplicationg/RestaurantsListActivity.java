@@ -5,11 +5,18 @@ import androidx.appcompat.widget.SearchView;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.ScaleAnimation;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.ToggleButton;
 
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -18,14 +25,35 @@ import com.smarteist.autoimageslider.SliderView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResturantsActivity extends AppCompatActivity {
+public class RestaurantsListActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener{
     SliderView sliderView;
     private SliderAdapterExample adapter;
+    Button goToRestBtn;
+    ScaleAnimation scaleAnimation = new ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF, 0.7f, Animation.RELATIVE_TO_SELF, 0.7f);
+    BounceInterpolator bounceInterpolator = new BounceInterpolator();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resturants);
+        setContentView(R.layout.activity_restaurants_list);
+
+        scaleAnimation.setDuration(500);
+        scaleAnimation.setInterpolator(bounceInterpolator);
+
+
+        ToggleButton[] favoriteButtons = {
+                findViewById(R.id.button_favorite_b1),
+                findViewById(R.id.button_favorite_b2),
+                findViewById(R.id.button_favorite_b3),
+                findViewById(R.id.button_favorite_b4),
+                findViewById(R.id.button_favorite_b5),
+                findViewById(R.id.button_favorite_b6)
+        };
+        for(ToggleButton button : favoriteButtons){
+            button.setOnCheckedChangeListener(this);
+        }
+
+
         sliderView = findViewById(R.id.imageSlider);
 
         adapter = new SliderAdapterExample(this);
@@ -40,6 +68,17 @@ public class ResturantsActivity extends AppCompatActivity {
         sliderView.setScrollTimeInSec(3);
         sliderView.setAutoCycle(true);
         sliderView.startAutoCycle();
+
+
+        goToRestBtn = findViewById(R.id.b1);
+        goToRestBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openResturentActivity();
+            }
+
+        });
+
     }
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -81,7 +120,29 @@ public class ResturantsActivity extends AppCompatActivity {
         adapter.addItem(sliderItem);
     }
 
+    public void openResturentActivity(){
+        Intent intent = new Intent(this, RestaurantActivity.class);
+        startActivity(intent);
+    }
 
 
-
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        buttonView.startAnimation(scaleAnimation);
+        switch(buttonView.getId()){
+            case R.id.button_favorite_b1:
+                break;
+            case R.id.button_favorite_b2:
+                break;
+            case R.id.button_favorite_b3:
+                break;
+            case R.id.button_favorite_b4:
+                break;
+            case R.id.button_favorite_b5:
+                break;
+            case R.id.button_favorite_b6:
+                break;
+            default:
+        }
+    }
 }

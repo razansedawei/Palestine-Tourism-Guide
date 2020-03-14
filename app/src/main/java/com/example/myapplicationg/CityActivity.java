@@ -40,7 +40,7 @@ public class CityActivity extends AppCompatActivity {
     }
 
     public void openRestActivity(){
-        Intent intent = new Intent(this, ResturantsActivity.class);
+        Intent intent = new Intent(this, RestaurantsListActivity.class);
         startActivity(intent);
     }
 }

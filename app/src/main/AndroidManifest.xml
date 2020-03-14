@@ -21,7 +21,7 @@
                 android:name="android.app.default_searchable"
                 android:value=".SearchResultsActivity" />
         </activity>
-        <activity android:name=".ResturantsActivity" />
+        <activity android:name=".RestaurantsListActivity" />
         <activity android:name=".CityActivity" />
         <activity android:name=".MapActivity" />
         <activity android:name=".RegisterActivity" />
