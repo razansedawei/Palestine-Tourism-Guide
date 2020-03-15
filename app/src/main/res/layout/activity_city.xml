@@ -12,6 +12,14 @@
     tools:context=".MainActivity"
     android:scrollbarAlwaysDrawVerticalTrack="true">
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        app:menu="@menu/nevectionbutton"/>
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

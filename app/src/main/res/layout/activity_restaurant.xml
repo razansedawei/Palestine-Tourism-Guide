@@ -7,7 +7,16 @@ android:layout_height="match_parent"
 android:orientation="vertical"
 tools:context=".MainActivity">
 
-<com.smarteist.autoimageslider.SliderView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        app:menu="@menu/nevectionbutton"/>
+
+
+    <com.smarteist.autoimageslider.SliderView
     android:id="@+id/imageSlider"
     android:layout_width="match_parent"
     android:layout_height="300dp"

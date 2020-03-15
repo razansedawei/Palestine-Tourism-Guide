@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Home"
+        android:id="@+id/homee"
+        android:icon="@drawable/ic_home_white_24dp"/>
+
+    <item android:title="My money"
+        android:id="@+id/money"
+        android:icon="@drawable/ic_attach_money_black_24dp"/>
+
+    <item android:title="My plan"
+        android:id="@+id/plan"
+        android:icon="@drawable/ic_playlist_add_black_24dp"/>
+
+    <item android:title="Profile"
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_profilperson_white_24dp"/>
+
+</menu>

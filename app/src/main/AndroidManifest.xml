@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ChangePassword"></activity>
         <activity android:name=".Settingprofile" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <meta-data
                 android:name="android.app.default_searchable"
@@ -30,7 +30,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_Key" />
 
-        <activity android:name=".LoginActivity">
+        <activity android:name=".ProfileActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
