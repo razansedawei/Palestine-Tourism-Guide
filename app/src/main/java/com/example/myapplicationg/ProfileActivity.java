@@ -36,6 +36,16 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        BottomNavigationView bottomNavigationView1 =findViewById(R.id.navigationtop);
+        bottomNavigationView1.setSelectedItemId(R.id.settingpro);
+        bottomNavigationView1.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        startActivity(new Intent(getApplicationContext(), Settingprofile.class));
+                return true;
+            }
+        });
+
 }
         }
 
