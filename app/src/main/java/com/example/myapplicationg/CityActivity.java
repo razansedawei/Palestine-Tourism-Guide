@@ -16,6 +16,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class CityActivity extends AppCompatActivity {
     Button goToMapBtnl;
     AppCompatImageButton goToRestBtnl;
+    AppCompatImageButton goToHotelbtn;
+    AppCompatImageButton goToPlacesbtn;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -60,6 +62,22 @@ public class CityActivity extends AppCompatActivity {
                 openRestActivity();
             }
         });
+
+        goToHotelbtn = findViewById(R.id.bb1);
+        goToHotelbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openHotelActivity();
+            }
+        });
+        goToPlacesbtn = findViewById(R.id.bb4);
+        goToPlacesbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPlacesActivity();
+            }
+        });
+
     }
     public void openMapActivity(){
         Intent intent = new Intent(this, MapActivity.class);
@@ -68,6 +86,14 @@ public class CityActivity extends AppCompatActivity {
 
     public void openRestActivity(){
         Intent intent = new Intent(this, RestaurantsListActivity.class);
+        startActivity(intent);
+    }
+    public void openHotelActivity(){
+        Intent intent = new Intent(this, HotelListActvity.class);
+        startActivity(intent);
+    }
+    public void openPlacesActivity(){
+        Intent intent = new Intent(this, PlacesListActivity.class);
         startActivity(intent);
     }
 }

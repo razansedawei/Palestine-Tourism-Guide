@@ -7,16 +7,7 @@ android:layout_height="match_parent"
 android:orientation="vertical"
 tools:context=".MainActivity">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#ffffff"
-        app:menu="@menu/nevectionbutton"/>
-
-
-    <com.smarteist.autoimageslider.SliderView
+<com.smarteist.autoimageslider.SliderView
     android:id="@+id/imageSlider"
     android:layout_width="match_parent"
     android:layout_height="300dp"
@@ -34,14 +25,14 @@ tools:context=".MainActivity">
     app:sliderScrollTimeInSec="1"
     app:sliderStartAutoCycle="true" />
 
-    <RatingBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imageSlider"
-        android:paddingTop="12dp"
-        android:id="@+id/rating_bar"
-        android:numStars="5"
-        android:stepSize="1" />
+<RatingBar
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/imageSlider"
+    android:paddingTop="12dp"
+    android:id="@+id/rating_bar"
+    android:numStars="5"
+    android:stepSize="1" />
 
 
 </RelativeLayout>

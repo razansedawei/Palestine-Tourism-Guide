@@ -1,21 +1,17 @@
 package com.example.myapplicationg;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
 import android.app.SearchManager;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.RatingBar;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -23,7 +19,7 @@ import com.smarteist.autoimageslider.SliderView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RestaurantActivity extends AppCompatActivity {
+public class PlaceActvity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
     RatingBar ratingBar;
@@ -66,13 +62,14 @@ public class RestaurantActivity extends AppCompatActivity {
     public void renewItems(View view) {
         List<SliderItem> sliderItemList = new ArrayList<>();
         //dummy data
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             sliderItemList.add(new SliderItem());
         }
-        sliderItemList.get(0).setImageUrl("https://i.ibb.co/1qMdyhn/1.jpg");
-        sliderItemList.get(1).setImageUrl("https://i.ibb.co/gTpXJrm/2.jpg");
-        sliderItemList.get(2).setImageUrl("https://i.ibb.co/c13Jcry/3.jpg");
-        sliderItemList.get(3).setImageUrl("https://i.ibb.co/NWfVP8M/4.jpg");
+        sliderItemList.get(0).setImageUrl("https://i.ibb.co/ggCSWjq/1.jpg");
+        sliderItemList.get(1).setImageUrl("https://i.ibb.co/qnvRHS7/2.jpg");
+        sliderItemList.get(2).setImageUrl("https://i.ibb.co/9rCc47q/3.jpg");
+        sliderItemList.get(3).setImageUrl("https://i.ibb.co/ZzjbYmf/4.jpg");
+        sliderItemList.get(4).setImageUrl("https://i.ibb.co/Yk7cxvf/5.jpg");
 
         adapter.renewItems(sliderItemList);
     }

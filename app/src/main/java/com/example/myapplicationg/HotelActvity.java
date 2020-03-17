@@ -1,21 +1,17 @@
 package com.example.myapplicationg;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
 import android.app.SearchManager;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.RatingBar;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -23,7 +19,7 @@ import com.smarteist.autoimageslider.SliderView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RestaurantActivity extends AppCompatActivity {
+public class HotelActvity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
     RatingBar ratingBar;
@@ -33,7 +29,7 @@ public class RestaurantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant);
         //rating
-        ratingBar=findViewById(R.id.rating_bar);
+        ratingBar = findViewById(R.id.rating_bar);
         sliderView = findViewById(R.id.imageSlider);
 
         adapter = new SliderAdapterExample(this);
@@ -49,6 +45,7 @@ public class RestaurantActivity extends AppCompatActivity {
         sliderView.setAutoCycle(true);
         sliderView.startAutoCycle();
     }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         // Inflate menu to add items to action bar if it is present.
@@ -63,16 +60,19 @@ public class RestaurantActivity extends AppCompatActivity {
 
         return true;
     }
+
     public void renewItems(View view) {
         List<SliderItem> sliderItemList = new ArrayList<>();
         //dummy data
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 6; i++) {
             sliderItemList.add(new SliderItem());
         }
-        sliderItemList.get(0).setImageUrl("https://i.ibb.co/1qMdyhn/1.jpg");
-        sliderItemList.get(1).setImageUrl("https://i.ibb.co/gTpXJrm/2.jpg");
-        sliderItemList.get(2).setImageUrl("https://i.ibb.co/c13Jcry/3.jpg");
-        sliderItemList.get(3).setImageUrl("https://i.ibb.co/NWfVP8M/4.jpg");
+        sliderItemList.get(0).setImageUrl("https://i.ibb.co/p1rjJH0/1.jpg[/img][/url]");
+        sliderItemList.get(1).setImageUrl("https://i.ibb.co/bs0tRvs/2.jpg[/img][/url]");
+        sliderItemList.get(2).setImageUrl("https://i.ibb.co/cyG7sjG/3.jpg[/img][/url]");
+        sliderItemList.get(3).setImageUrl("https://i.ibb.co/HBf2sZB/4.jpg[/img][/url]");
+        sliderItemList.get(4).setImageUrl("https://i.ibb.co/7jK8vWd/5.jpg[/img][/url]");
+        sliderItemList.get(5).setImageUrl("https://i.ibb.co/dWsq1sN/6.jpg[/img][/url]");
 
         adapter.renewItems(sliderItemList);
     }
@@ -88,8 +88,4 @@ public class RestaurantActivity extends AppCompatActivity {
         sliderItem.setImageUrl("https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
         adapter.addItem(sliderItem);
     }
-
-
-
-
 }
