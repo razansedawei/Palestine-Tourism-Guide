@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.smarteist.autoimageslider.SliderView
+        android:id="@+id/imageSlider"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        app:sliderAnimationDuration="600"
+        app:sliderAutoCycleDirection="back_and_forth"
+        app:sliderAutoCycleEnabled="true"
+        app:sliderIndicatorAnimationDuration="600"
+        app:sliderIndicatorGravity="center_horizontal|bottom"
+        app:sliderIndicatorMargin="15dp"
+        app:sliderIndicatorOrientation="horizontal"
+        app:sliderIndicatorPadding="3dp"
+        app:sliderIndicatorRadius="2dp"
+        app:sliderIndicatorSelectedColor="#5A5A5A"
+        app:sliderIndicatorUnselectedColor="#FFF"
+        app:sliderScrollTimeInSec="1"
+        app:sliderStartAutoCycle="true" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:layout_below="@+id/imageSlider">
+        <LinearLayout
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="14dp"
+            android:layout_weight="8"
+            android:orientation="vertical">
+            <!--<Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbar"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:minHeight="55dp"
+                android:id="@+id/topspace">
+            </Space>-->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/place1"
+                        android:layout_width="240dp"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:text="Jamal Abdul Nasser Park"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="24sp"
+                        style="?android:attr/borderlessButtonStyle"/>
+
+                    <ToggleButton
+                        android:id="@+id/button_favorite_b1"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/button_favorite"
+                        android:checked="false"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:text=""
+                        android:textOff=""
+                        android:textOn="" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/b2"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:text="Muneeb Al-Masry Palace"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="24sp"
+                        style="?android:attr/borderlessButtonStyle"/>
+
+                    <ToggleButton
+                        android:id="@+id/button_favorite_b2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/button_favorite"
+                        android:checked="false"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:text=""
+                        android:textOff=""
+                        android:textOn="" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/b3"
+                        android:layout_width="281dp"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:text="Sama Nablus"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="24sp"
+                        style="?android:attr/borderlessButtonStyle"/>
+
+                    <ToggleButton
+                        android:id="@+id/button_favorite_b3"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/button_favorite"
+                        android:checked="false"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:text=""
+                        android:textOff=""
+                        android:textOn="" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/b4"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:text="Butterflies"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="24sp"
+                        style="?android:attr/borderlessButtonStyle"/>
+
+                    <ToggleButton
+                        android:id="@+id/button_favorite_b4"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/button_favorite"
+                        android:checked="false"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:text=""
+                        android:textOff=""
+                        android:textOn="" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/b5"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:text="Sebastia"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="24sp"
+                        style="?android:attr/borderlessButtonStyle"/>
+
+                    <ToggleButton
+                        android:id="@+id/button_favorite_b5"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/button_favorite"
+                        android:checked="false"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:text=""
+                        android:textOff=""
+                        android:textOn="" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/b6"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:text="KFC"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="24sp"
+                        style="?android:attr/borderlessButtonStyle"/>
+
+                    <ToggleButton
+                        android:id="@+id/button_favorite_b6"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/button_favorite"
+                        android:checked="false"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:text=""
+                        android:textOff=""
+                        android:textOn="" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
