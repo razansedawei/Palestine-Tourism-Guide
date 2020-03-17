@@ -34,15 +34,10 @@ public class MainActivity extends AppCompatActivity {
     Button goToMapBtn;
     Button goToCityBtn;
 
-
-
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
 
         sliderView = findViewById(R.id.imageSlider);
 

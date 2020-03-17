@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:appcompat="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
 <item android:title="setting"
-
     android:id="@+id/settingpro"
-android:icon="@drawable/ic_settings_black_24dp" />
-
+android:icon="@drawable/ic_settings_black_24dp"
+    appcompat:showAsAction="always" />
 </menu>
