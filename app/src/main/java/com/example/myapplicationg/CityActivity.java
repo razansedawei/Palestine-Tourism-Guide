@@ -18,6 +18,7 @@ public class CityActivity extends AppCompatActivity {
     AppCompatImageButton goToRestBtnl;
     AppCompatImageButton goToHotelbtn;
     AppCompatImageButton goToPlacesbtn;
+    AppCompatImageButton goToWeatherbtn;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -77,6 +78,14 @@ public class CityActivity extends AppCompatActivity {
                 openPlacesActivity();
             }
         });
+        goToHotelbtn = findViewById(R.id.bb3);
+        goToHotelbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openWeatherActivity();
+            }
+        });
+
 
     }
     public void openMapActivity(){
@@ -94,6 +103,10 @@ public class CityActivity extends AppCompatActivity {
     }
     public void openPlacesActivity(){
         Intent intent = new Intent(this, PlacesListActivity.class);
+        startActivity(intent);
+    }
+    public void openWeatherActivity(){
+        Intent intent = new Intent(this, WeatherActvity.class);
         startActivity(intent);
     }
 }
