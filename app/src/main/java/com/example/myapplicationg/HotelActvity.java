@@ -32,7 +32,7 @@ public class HotelActvity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_restaurant);
+        setContentView(R.layout.activity_hotel_actvity);
         //rating
         ratingBar = findViewById(R.id.rating_bar);
         sliderView = findViewById(R.id.imageSlider);
