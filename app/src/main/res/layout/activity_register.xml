@@ -7,7 +7,7 @@
     android:background="@drawable/loginbackground"
     tools:context=".RegisterActivity">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -83,7 +83,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/textbox_back"
-            android:text="Log in"
+            android:text="Register"
             android:textColor="#ffffff"
             android:textSize="22dp" />
 

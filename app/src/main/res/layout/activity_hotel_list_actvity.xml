@@ -53,7 +53,7 @@
             </Space>-->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
+                android:layout_height="match_parent"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="16dp"
@@ -64,21 +64,10 @@
                 app:cardElevation="2dp"
                 app:cardUseCompatPadding="true">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <Button
-                        android:id="@+id/hotel1"
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/white"
-                        android:text="Yildiz Palace Hotel"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerInParent="true"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="24sp"
-                        style="?android:attr/borderlessButtonStyle"/>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <ToggleButton
                         android:id="@+id/button_favorite_b1"
@@ -91,7 +80,31 @@
                         android:text=""
                         android:textOff=""
                         android:textOn="" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="120dp"
+                        android:src="@drawable/nablus" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/hotel1"
+                        android:layout_width="240dp"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:text="   Yildiz Palace Hotel"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        style="?android:attr/borderlessButtonStyle"/>
+
+
                 </RelativeLayout>
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"

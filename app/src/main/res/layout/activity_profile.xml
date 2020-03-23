@@ -22,7 +22,7 @@
         app:menu="@menu/settingprofil"
         android:paddingLeft="250dp" />
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -91,6 +91,12 @@
                     android:textColor="#ffffff" />
             </LinearLayout>
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="121dp"
+            android:layout_height="111dp"
+            app:srcCompat="@android:drawable/ic_input_add" />
 
     </LinearLayout>
     </ScrollView>

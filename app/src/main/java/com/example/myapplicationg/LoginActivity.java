@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
         mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                openRegisternActivity();
             }
         });
     }
@@ -98,5 +98,11 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void openRegisternActivity(){
+        Intent intent2 = new Intent(getApplicationContext(), RegisterActivity.class);
+        startActivity(intent2);
+    }
+
 
 }
