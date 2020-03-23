@@ -11,7 +11,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
 
 public class CityActivity extends AppCompatActivity {
     Button goToMapBtnl;
@@ -19,6 +24,7 @@ public class CityActivity extends AppCompatActivity {
     AppCompatImageButton goToHotelbtn;
     AppCompatImageButton goToPlacesbtn;
     AppCompatImageButton goToWeatherbtn;
+    AppCompatImageButton goToTaxibtn;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -52,7 +58,7 @@ public class CityActivity extends AppCompatActivity {
         goToMapBtnl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openMapActivity();
+                openMapActivity(null, null);
             }
         });
 
@@ -85,11 +91,30 @@ public class CityActivity extends AppCompatActivity {
                 openWeatherActivity();
             }
         });
+        goToTaxibtn = findViewById(R.id.bb2);
+        goToTaxibtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                MarkerOptions city = new MarkerOptions().position(new LatLng(32.2264821,35.2685216)).title("Nablus");
+
+                ArrayList<MarkerOptions> markers = new ArrayList<MarkerOptions>();
+                markers.add(new MarkerOptions().position(new LatLng(32.2243059, 35.2301697)).title("Etimad Taxi").snippet("Tel: +970 1700 100 200"));
+                markers.add( new MarkerOptions().position(new LatLng(32.2264684, 35.2685215)).title("Jawwal Taxi").snippet("Tel: +970 9 234 3880"));
+                markers.add(  new MarkerOptions().position(new LatLng(32.2243896, 35.2562793)).title("Western Transport Service"));
+                markers.add(  new MarkerOptions().position(new LatLng(32.2271493, 35.2487309)).title("Al-Jazeera Taxi").snippet("Tel: +970 9 233 3702"));
+
+                openMapActivity(city, markers);
+            }
+        });
 
 
     }
-    public void openMapActivity(){
+    public void openMapActivity(MarkerOptions center, ArrayList markers){
+
         Intent intent = new Intent(this, MapActivity.class);
+        intent.putExtra("city", center);
+        intent.putExtra("markers", markers);
         startActivity(intent);
     }
 

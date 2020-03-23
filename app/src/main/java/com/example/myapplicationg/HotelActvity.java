@@ -5,13 +5,17 @@ import androidx.appcompat.widget.SearchView;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.RatingBar;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -23,6 +27,7 @@ public class HotelActvity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
     RatingBar ratingBar;
+    ImageButton showHotelLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,20 @@ public class HotelActvity extends AppCompatActivity {
         adapter = new SliderAdapterExample(this);
         sliderView.setSliderAdapter(adapter);
         renewItems(null);
+
+        showHotelLocation = findViewById(R.id.map);
+        showHotelLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MarkerOptions city = new MarkerOptions().position(new LatLng(32.2264821,35.2685216)).title("Nablus");
+
+                ArrayList<MarkerOptions> markers = new ArrayList<MarkerOptions>();
+                markers.add(new MarkerOptions().position(new LatLng(32.2262644,35.2100038)).title("Yildiz palace Hotel").snippet("+970 599 653 635"));
+
+
+                openHotelMapActivity(city, markers);
+            }
+        });
 
         sliderView.setIndicatorAnimation(IndicatorAnimations.SLIDE); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
@@ -88,4 +107,14 @@ public class HotelActvity extends AppCompatActivity {
         sliderItem.setImageUrl("https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
         adapter.addItem(sliderItem);
     }
-}
+
+            public void openHotelMapActivity(MarkerOptions center, ArrayList markers){
+
+                Intent intent = new Intent(this, MapActivity.class);
+                intent.putExtra("city", center);
+                intent.putExtra("markers", markers);
+                startActivity(intent);
+            }
+
+
+        }

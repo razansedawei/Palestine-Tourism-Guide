@@ -21,18 +21,30 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+import java.util.ArrayList;
+
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
 
     Location currentlocation;
     FusedLocationProviderClient fusedLocationProviderClient;
+    MarkerOptions city;
+    ArrayList<MarkerOptions> markers;
     private static final  int REQUEST_CODE=101;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-        fusedLocationProviderClient= LocationServices.getFusedLocationProviderClient(this);
-        fetchlastlocation();
+        city = getIntent().getParcelableExtra("city");
+        markers =  getIntent().getParcelableArrayListExtra("markers");
+        if(city != null) {
+            SupportMapFragment supportMapFragment = (SupportMapFragment)
+                    getSupportFragmentManager().findFragmentById(R.id.google_map);
+            supportMapFragment.getMapAsync(MapActivity.this);
+        } else {
+            fusedLocationProviderClient= LocationServices.getFusedLocationProviderClient(this);
+            fetchlastlocation();
+        }
     }
 
     private void fetchlastlocation() {
@@ -58,11 +70,26 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        LatLng latLng = new LatLng(currentlocation.getLatitude(), currentlocation.getLongitude());
-        MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("I Am Here");
-        googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 5));
-        googleMap.addMarker(markerOptions);
+        if(city != null) {
+
+            googleMap.animateCamera(CameraUpdateFactory.newLatLng(city.getPosition()));
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(city.getPosition(), 13));
+            //Show City marker
+            //googleMap.addMarker(city);
+
+            for(MarkerOptions marker: markers){
+                googleMap.addMarker(marker);
+            }
+
+        } else {
+            LatLng latLng = new LatLng(currentlocation.getLatitude(), currentlocation.getLongitude());
+            MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("I Am Here");
+            googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 5));
+            googleMap.addMarker(markerOptions);
+        }
+
+
     }
 
     @Override

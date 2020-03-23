@@ -33,6 +33,13 @@ tools:context=".MainActivity">
     android:id="@+id/rating_bar"
     android:numStars="5"
     android:stepSize="1" />
+    <ImageButton
+        android:id="@+id/map"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/rating_bar"
+        android:background="#ffffffff"
+        android:src="@drawable/ic_location_on_black_24dp" />
 
 
 </RelativeLayout>
