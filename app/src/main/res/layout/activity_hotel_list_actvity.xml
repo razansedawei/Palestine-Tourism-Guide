@@ -71,8 +71,8 @@
 
                     <ToggleButton
                         android:id="@+id/button_favorite_b1"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
                         android:background="@drawable/button_favorite"
                         android:checked="false"
                         android:layout_alignParentRight="true"
@@ -81,10 +81,11 @@
                         android:textOff=""
                         android:textOn="" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="120dp"
-                        android:src="@drawable/nablus" />
+                    <ImageButton
+                        android:layout_width="250dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/nablus"
+                        android:layout_gravity="center"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"

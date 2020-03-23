@@ -35,7 +35,8 @@
             android:padding="8dp"
             android:textColor="#FFFFFF"
             android:textColorHint="@color/colorPrimary"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:inputType="textEmailAddress"/>
 
         <EditText
             android:id="@+id/t2"
