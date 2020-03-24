@@ -36,23 +36,7 @@ public class RestaurantsListActivity extends AppCompatActivity implements Compou
 
         BottomNavigationView bottomNavigationView =findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.homee);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-
-                    case R.id.homee:
-                        return true;
-
-                }
-
-                return false;
-            }
-        });
+        bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationBarClickListener(this));
 
 
         scaleAnimation.setDuration(500);

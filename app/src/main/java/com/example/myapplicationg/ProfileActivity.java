@@ -18,23 +18,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView =findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.profile);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.homee:
-                        startActivity(new Intent(getApplicationContext(), CityActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-
-                    case R.id.profile:
-                        return true;
-
-                }
-
-                return false;
-            }
-        });
+        bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationBarClickListener(this));
 
         BottomNavigationView bottomNavigationView1 =findViewById(R.id.navigationtop);
         bottomNavigationView1.setSelectedItemId(R.id.settingpro);
