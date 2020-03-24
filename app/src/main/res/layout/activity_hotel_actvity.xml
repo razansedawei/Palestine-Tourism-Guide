@@ -47,6 +47,7 @@ tools:context=".MainActivity">
         android:orientation="horizontal">
 
       <TextView
+          android:paddingLeft="20dp"
           android:id="@+id/textnameforplace"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -60,8 +61,7 @@ tools:context=".MainActivity">
         android:layout_height="70dp"
         android:layout_below="@id/rating_bar"
         android:background="#ffffff"
-        android:layout_marginRight="0dp"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="90dp"
         android:src="@drawable/ic_location_on_black_24dp" />
     </LinearLayout>
     <RatingBar
