@@ -1,15 +1,9 @@
 package com.example.myapplicationg;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.BounceInterpolator;
@@ -80,20 +74,7 @@ public class HotelListActvity extends AppCompatActivity implements CompoundButto
         });
 
     }
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        // Inflate menu to add items to action bar if it is present.
-        inflater.inflate(R.menu.menu_main, menu);
-        // Associate searchable configuration with the SearchView
-        SearchManager searchManager =
-                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView =
-                (SearchView) menu.findItem(R.id.menu_search).getActionView();
-        searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(getComponentName()));
 
-        return true;
-    }
     public void renewItems(View view) {
         List<SliderItem> sliderItemList = new ArrayList<>();
         //dummy data
@@ -107,18 +88,6 @@ public class HotelListActvity extends AppCompatActivity implements CompoundButto
         sliderItemList.get(4).setImageUrl("https://i.ibb.co/q0WsLjC/5.jpg");
         sliderItemList.get(5).setImageUrl("https://i.ibb.co/N74Cy2q/6.jpg");
         adapter.renewItems(sliderItemList);
-    }
-
-    public void removeLastItem(View view) {
-        if (adapter.getCount() - 1 >= 0)
-            adapter.deleteItem(adapter.getCount() - 1);
-    }
-
-    public void addNewItem(View view) {
-        SliderItem sliderItem = new SliderItem();
-        sliderItem.setDescription("Slider Item Added Manually");
-        sliderItem.setImageUrl("https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-        adapter.addItem(sliderItem);
     }
 
     public void openHotelActivity(){
