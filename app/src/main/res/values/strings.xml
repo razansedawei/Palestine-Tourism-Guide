@@ -8,4 +8,19 @@
     <string name="menu_search">Search</string>
 
     <string name="map_Key" translatable="false">AIzaSyCoFLhyUfrW0xDdhibOFYHZGc2_Ncd9lCc</string>
+
+    <string name="dialog_title">Cities</string>
+    <string name="ok_label">OK</string>
+    <string name="dismiss_label">Dismiss</string>
+    <string name="clear_all_label">Clear all</string>
+
+    <string-array name="cities">
+        <item>Nablus</item>
+        <item>Tulkarm</item>
+        <item>Ramallah</item>
+        <item>Betlhlehem</item>
+        <item>Hebron</item>
+        <item>Jenin</item>
+
+    </string-array>
 </resources>
