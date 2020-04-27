@@ -31,8 +31,11 @@ public class HotelListActvity extends AppCompatActivity implements CompoundButto
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_list_actvity);
 
+
+
         scaleAnimation.setDuration(500);
         scaleAnimation.setInterpolator(bounceInterpolator);
+
 
 
         ToggleButton[] favoriteButtons = {
@@ -64,7 +67,7 @@ public class HotelListActvity extends AppCompatActivity implements CompoundButto
         sliderView.startAutoCycle();
 
 
-       HotelBtn = findViewById(R.id.hotel1);
+       HotelBtn = findViewById(R.id.b2);
         HotelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="400dp"
+    android:layout_height="770dp"
+    android:orientation="vertical"
+    tools:context=".Tripplan">
+
+
+    <Button
+        android:id="@+id/show_trip"
+        android:layout_width="260dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="200dp"
+        android:layout_gravity="center"
+        android:background="@drawable/fovprofile"
+        android:textSize="27sp"
+        android:text="Show Trip Plan"
+        android:textColor="#ffffffff" />
+
+    <Button
+        android:layout_width="260dp"
+        android:layout_height="100dp"
+        android:background="@drawable/fovprofile"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center"
+        android:text="Create Trip Plan "
+        android:textColor="#ffffff"
+        android:textSize="27sp"
+        android:id="@+id/creat_trip"/>
+
+
+</LinearLayout>
