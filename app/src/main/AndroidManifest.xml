@@ -13,8 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Tripplan"></activity>
         <activity android:name=".CreateTripActivity"></activity>
-        <activity android:name=".RestaurantActivity" />
+        <activity android:name=".RestaurantActivity"></activity>
         <activity android:name=".WeatherActvity" />
         <activity android:name=".PlaceActvity" />
         <activity android:name=".PlacesListActivity" />
@@ -22,7 +23,7 @@
         <activity android:name=".HotelListActvity" />
         <activity android:name=".ChangePassword" />
         <activity android:name=".Settingprofile" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity" />
         <activity android:name=".CityActivity">
             <meta-data
                 android:name="android.app.default_searchable"
@@ -37,7 +38,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_Key" />
 
-        <activity android:name=".LoginActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

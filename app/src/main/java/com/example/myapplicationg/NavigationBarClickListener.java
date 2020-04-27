@@ -23,9 +23,11 @@ public class NavigationBarClickListener implements BottomNavigationView.OnNaviga
                 return true;
 
             case R.id.homee:
+                context.startActivity(new Intent(context.getApplicationContext(), MainActivity.class));
                 return true;
 
             case R.id.plan:
+                context.startActivity(new Intent(context.getApplicationContext(), Tripplan.class));
                 return true;
 
         }
