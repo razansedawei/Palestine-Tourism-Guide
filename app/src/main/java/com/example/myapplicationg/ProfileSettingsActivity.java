@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -18,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-public class Settingprofile extends AppCompatActivity {
+public class ProfileSettingsActivity extends AppCompatActivity {
 Button repassword , signout1 , deleteaccount;
 FirebaseAuth firbas;
 FirebaseUser fireuser;
@@ -26,7 +25,7 @@ FirebaseUser fireuser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settingprofile);
+        setContentView(R.layout.activity_profile_settings);
 
         deleteaccount=findViewById(R.id.delete);
         repassword=findViewById(R.id.changepassword);
@@ -52,7 +51,7 @@ FirebaseUser fireuser;
         deleteaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(Settingprofile.this);
+                AlertDialog.Builder dialog = new AlertDialog.Builder(ProfileSettingsActivity.this);
                 dialog.setTitle("Are you sure? ");
                 dialog.setMessage("If you deleting this account you can not have it back!");
                 dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
@@ -63,15 +62,15 @@ FirebaseUser fireuser;
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            Toast.makeText(Settingprofile.this,"Account Deleted ", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(ProfileSettingsActivity.this,"Account Deleted ", Toast.LENGTH_LONG).show();
 
-                                        Intent intent = new Intent(Settingprofile.this,LoginActivity.class);
+                                        Intent intent = new Intent(ProfileSettingsActivity.this,LoginActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                         startActivity(intent);
                                         }
                                         else {
-                                            Toast.makeText(Settingprofile.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                            Toast.makeText(ProfileSettingsActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
 
                                         }
 

@@ -25,7 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
         bottomNavigationView1.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                        startActivity(new Intent(getApplicationContext(), Settingprofile.class));
+                        startActivity(new Intent(getApplicationContext(), ProfileSettingsActivity.class));
                 return true;
             }
         });

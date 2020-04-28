@@ -45,6 +45,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             fusedLocationProviderClient= LocationServices.getFusedLocationProviderClient(this);
             fetchlastlocation();
         }
+
+
     }
 
     private void fetchlastlocation() {
