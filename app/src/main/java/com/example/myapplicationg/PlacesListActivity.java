@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -34,6 +35,8 @@ public class PlacesListActivity extends AppCompatActivity implements CompoundBut
         scaleAnimation.setDuration(500);
         scaleAnimation.setInterpolator(bounceInterpolator);
 
+        BottomNavigationView bottomNavigationView =findViewById(R.id.navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationBarClickListener(this));
 
         ToggleButton[] favoriteButtons = {
                 findViewById(R.id.button_favorite_b1),

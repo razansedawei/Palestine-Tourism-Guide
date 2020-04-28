@@ -33,7 +33,7 @@ public class CityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_city);
 
         BottomNavigationView bottomNavigationView =findViewById(R.id.navigation);
-        bottomNavigationView.setSelectedItemId(R.id.homee);
+        bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationBarClickListener(this));
 
 

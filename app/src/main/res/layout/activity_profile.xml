@@ -12,14 +12,14 @@
        android:layout_height="wrap_content"
        android:layout_alignParentBottom="true"
        android:background="#ffffff"
-       app:menu="@menu/nevectionbutton"/>
+       app:menu="@menu/navigation_bar"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationtop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffff"
-        app:menu="@menu/settingprofil"
+        app:menu="@menu/profile_settings"
         android:paddingLeft="250dp" />
 
     <ScrollView

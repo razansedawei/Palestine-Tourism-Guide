@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -31,6 +32,8 @@ public class HotelListActvity extends AppCompatActivity implements CompoundButto
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_list_actvity);
 
+        BottomNavigationView bottomNavigationView =findViewById(R.id.navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationBarClickListener(this));
 
 
         scaleAnimation.setDuration(500);

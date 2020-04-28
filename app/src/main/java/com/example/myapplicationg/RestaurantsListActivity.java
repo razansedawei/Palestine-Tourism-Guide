@@ -35,7 +35,6 @@ public class RestaurantsListActivity extends AppCompatActivity implements Compou
         setContentView(R.layout.activity_restaurants_list);
 
         BottomNavigationView bottomNavigationView =findViewById(R.id.navigation);
-        bottomNavigationView.setSelectedItemId(R.id.homee);
         bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationBarClickListener(this));
 
 
