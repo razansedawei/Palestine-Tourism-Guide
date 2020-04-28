@@ -8,6 +8,7 @@
     tools:context=".Tripplan">
 
 
+
     <Button
         android:id="@+id/show_trip"
         android:layout_width="260dp"

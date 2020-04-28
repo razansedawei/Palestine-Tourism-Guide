@@ -17,10 +17,10 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationtop"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:background="#ffffff"
+        android:layout_height="wrap_content"
         app:menu="@menu/settingprofil"
-        android:paddingLeft="250dp" />
+        android:paddingLeft="280dp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -50,7 +50,7 @@
                 android:background="@drawable/bioprofile">
 
                 <ImageView
-                    android:layout_marginTop="50px"
+                    android:layout_marginTop="70px"
                     android:layout_width="500px"
                     android:layout_height="500px"
                     android:src="@drawable/ro"/>
