@@ -11,18 +11,6 @@ android:layout_height="match_parent"
 android:orientation="vertical"
 tools:context=".MainActivity">
 
-    <ToggleButton
-        android:id="@+id/button_favorite_b1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/button_favorite"
-        android:checked="false"
-        android:layout_alignParentRight="true"
-        android:layout_centerInParent="true"
-        android:text=""
-        android:textOff=""
-        android:textOn="" />
-
 <com.smarteist.autoimageslider.SliderView
     android:id="@+id/imageSlider"
     android:layout_width="match_parent"

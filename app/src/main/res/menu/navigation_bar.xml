@@ -5,13 +5,13 @@
         android:id="@+id/home"
         android:icon="@drawable/ic_home_white_24dp"/>
 
-    <item android:title="My money"
-        android:id="@+id/money"
-        android:icon="@drawable/ic_attach_money_black_24dp"/>
-
     <item android:title="My plan"
         android:id="@+id/plan"
         android:icon="@drawable/ic_playlist_add_black_24dp"/>
+
+    <item android:title="My favorite"
+        android:id="@+id/money"
+        android:icon="@drawable/ic_favorite_white_24dp"/>
 
     <item android:title="Profile"
         android:id="@+id/profile"
