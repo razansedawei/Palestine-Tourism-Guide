@@ -21,7 +21,6 @@
         <activity android:name=".PlacesListActivity" />
         <activity android:name=".HotelActvity" />
         <activity android:name=".HotelListActvity" />
-        <activity android:name=".ChangePassword" />
         <activity android:name=".ProfileSettingsActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".CityActivity">

@@ -9,9 +9,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,13 +31,55 @@ FirebaseUser fireuser;
         setContentView(R.layout.activity_profile_settings);
 
         deleteaccount=findViewById(R.id.delete);
+
+        firbas=FirebaseAuth.getInstance();
+        fireuser=firbas.getCurrentUser();
         repassword=findViewById(R.id.changepassword);
+
         repassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openchangepassword();
+                final EditText resetpassword= new EditText(v.getContext());
+
+                final AlertDialog.Builder PasswordResetDialog = new AlertDialog.Builder(v.getContext());
+                PasswordResetDialog.setTitle(" Reset Password ");
+                PasswordResetDialog.setMessage(" Enter new password > 6 characters.");
+                PasswordResetDialog.setView(resetpassword);
+
+                PasswordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                        String newPassword = resetpassword.getText().toString();
+                        fireuser.updatePassword(newPassword).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(ProfileSettingsActivity.this, "Password Reset Successfully.", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(ProfileSettingsActivity.this, "Password Reset Failure.", Toast.LENGTH_SHORT).show();
+
+                            }
+                        });
+                    }
+                    });
+
+                PasswordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    //close
+                    }
+                });
+
+                PasswordResetDialog.create().show();
+
             }
+
         });
+
         signout1=findViewById(R.id.signout);
         signout1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,8 +149,5 @@ FirebaseUser fireuser;
         startActivity(isignout);
     }
 
-    public void openchangepassword(){
-        Intent ipassword = new Intent(this, ChangePassword.class);
-        startActivity(ipassword);
-    }
+
 }

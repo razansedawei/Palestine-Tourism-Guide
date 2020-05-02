@@ -33,11 +33,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String userId = user.getUid();
-
-        TextView textView = (TextView) findViewById(R.id.user_name);
-        textView.setText(userId);
     }
 }
 
