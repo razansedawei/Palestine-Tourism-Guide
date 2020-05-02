@@ -104,9 +104,10 @@
                         android:checked="false"
                         android:layout_alignParentRight="true"
                         android:layout_centerInParent="true"
-                        android:text=""
+                        android:text="Jamal Abdul Nasser Park"
                         android:textOff=""
-                        android:textOn="" />
+                        android:textColor="@android:color/transparent"
+                        android:textOn="Jamal Abdul Nasser Park" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -146,9 +147,10 @@
                         android:checked="false"
                         android:layout_alignParentRight="true"
                         android:layout_centerInParent="true"
-                        android:text=""
+                        android:text="Muneeb Al-Masry Palace"
                         android:textOff=""
-                        android:textOn="" />
+                        android:textColor="@android:color/transparent"
+                        android:textOn="Muneeb Al-Masry Palace" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -188,9 +190,10 @@
                         android:checked="false"
                         android:layout_alignParentRight="true"
                         android:layout_centerInParent="true"
-                        android:text=""
+                        android:text="Sama Nablus"
                         android:textOff=""
-                        android:textOn="" />
+                        android:textColor="@android:color/transparent"
+                        android:textOn="Sama Nablus" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -229,9 +232,10 @@
                         android:checked="false"
                         android:layout_alignParentRight="true"
                         android:layout_centerInParent="true"
-                        android:text=""
+                        android:text="Butterflies"
                         android:textOff=""
-                        android:textOn="" />
+                        android:textColor="@android:color/transparent"
+                        android:textOn="Butterflies" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -271,9 +275,10 @@
                         android:checked="false"
                         android:layout_alignParentRight="true"
                         android:layout_centerInParent="true"
-                        android:text=""
+                        android:text="Sebastia"
                         android:textOff=""
-                        android:textOn="" />
+                        android:textColor="@android:color/transparent"
+                        android:textOn="Sebastia" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -313,9 +318,10 @@
                         android:checked="false"
                         android:layout_alignParentRight="true"
                         android:layout_centerInParent="true"
-                        android:text=""
+                        android:text="al_najah national university"
                         android:textOff=""
-                        android:textOn="" />
+                        android:textColor="@android:color/transparent"
+                        android:textOn="al_najah national university" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>

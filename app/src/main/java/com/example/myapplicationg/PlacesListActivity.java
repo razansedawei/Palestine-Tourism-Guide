@@ -1,5 +1,6 @@
 package com.example.myapplicationg;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,9 +13,15 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -29,11 +36,19 @@ public class PlacesListActivity extends AppCompatActivity implements CompoundBut
     Button goToPlaceLocation;
     ScaleAnimation scaleAnimation = new ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF, 0.7f, Animation.RELATIVE_TO_SELF, 0.7f);
     BounceInterpolator bounceInterpolator = new BounceInterpolator();
+    FirebaseFirestore db;
+    String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places_list);
+
+        db= FirebaseFirestore.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null) {
+            userID = user.getUid();
+        }
 
         scaleAnimation.setDuration(500);
         scaleAnimation.setInterpolator(bounceInterpolator);
@@ -41,7 +56,7 @@ public class PlacesListActivity extends AppCompatActivity implements CompoundBut
         BottomNavigationView bottomNavigationView =findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationBarClickListener(this));
 
-        ToggleButton[] favoriteButtons = {
+        final ToggleButton[] favoriteButtons = {
                 findViewById(R.id.button_favorite_b1),
                 findViewById(R.id.button_favorite_b2),
                 findViewById(R.id.button_favorite_b3),
@@ -49,9 +64,28 @@ public class PlacesListActivity extends AppCompatActivity implements CompoundBut
                 findViewById(R.id.button_favorite_b5),
                 findViewById(R.id.button_favorite_b6)
         };
-        for(ToggleButton button : favoriteButtons){
-            button.setOnCheckedChangeListener(this);
-        }
+
+        final CompoundButton.OnCheckedChangeListener self = this;
+
+        db.collection("favoriteList").document(userID).get().addOnCompleteListener(
+                new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            ArrayList<String> list = (ArrayList<String>)document.get("list");
+                            for(ToggleButton button : favoriteButtons){
+                                if(list.contains(button.getTextOn().toString())){
+                                    button.setChecked(true);
+                                }
+                            }
+
+                            for(ToggleButton button : favoriteButtons){
+                                button.setOnCheckedChangeListener(self);
+                            }
+                        }
+                    }
+                });
 
 
         sliderView = findViewById(R.id.imageSlider);
@@ -133,8 +167,29 @@ public class PlacesListActivity extends AppCompatActivity implements CompoundBut
 
 
     @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+    public void onCheckedChanged(final CompoundButton buttonView, final boolean isChecked) {
         buttonView.startAnimation(scaleAnimation);
+        final String place = ((ToggleButton) buttonView).getTextOn().toString();
+        db.collection("favoriteList").document(userID).get().addOnCompleteListener(
+                new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            ArrayList<String> list = (ArrayList<String>)document.get("list");
+                            if(isChecked) {
+                                if(!list.contains(place)) {
+                                    list.add(place);
+                                }
+                            } else {
+                                list.remove(list.indexOf(place));
+                            }
+                            db.collection("favoriteList").document(userID).update("list", list);
+                        }
+                    }
+                });
+
+
         switch(buttonView.getId()){
             case R.id.button_favorite_b1:
                 break;
