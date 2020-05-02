@@ -10,7 +10,7 @@
         android:icon="@drawable/ic_playlist_add_black_24dp"/>
 
     <item android:title="My favorite"
-        android:id="@+id/money"
+        android:id="@+id/favorite"
         android:icon="@drawable/ic_favorite_white_24dp"/>
 
     <item android:title="Profile"
