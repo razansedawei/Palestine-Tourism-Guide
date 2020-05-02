@@ -2,6 +2,8 @@ package com.example.myapplicationg;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,9 +14,16 @@ import android.view.animation.BounceInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -28,6 +37,8 @@ public class RestaurantsListActivity extends AppCompatActivity implements Compou
     Button goToRestBtn;
     ScaleAnimation scaleAnimation = new ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF, 0.7f, Animation.RELATIVE_TO_SELF, 0.7f);
     BounceInterpolator bounceInterpolator = new BounceInterpolator();
+    FirebaseFirestore db;
+    String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +48,17 @@ public class RestaurantsListActivity extends AppCompatActivity implements Compou
         BottomNavigationView bottomNavigationView =findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationBarClickListener(this));
 
+        db= FirebaseFirestore.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null) {
+            userID = user.getUid();
+        }
 
         scaleAnimation.setDuration(500);
         scaleAnimation.setInterpolator(bounceInterpolator);
 
 
-        ToggleButton[] favoriteButtons = {
+        final ToggleButton[] favoriteButtons = {
                 findViewById(R.id.button_favorite_b1),
                 findViewById(R.id.button_favorite_b2),
                 findViewById(R.id.button_favorite_b3),
@@ -50,9 +66,29 @@ public class RestaurantsListActivity extends AppCompatActivity implements Compou
                 findViewById(R.id.button_favorite_b5),
                 findViewById(R.id.button_favorite_b6)
         };
-        for(ToggleButton button : favoriteButtons){
-            button.setOnCheckedChangeListener(this);
-        }
+
+        final CompoundButton.OnCheckedChangeListener self = this;
+
+        db.collection("favoriteList").document(userID).get().addOnCompleteListener(
+                new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            ArrayList<String> list = (ArrayList<String>)document.get("list");
+                            for(ToggleButton button : favoriteButtons){
+                                if(list.contains(button.getTextOn().toString())){
+                                    button.setChecked(true);
+                                }
+                            }
+
+                            for(ToggleButton button : favoriteButtons){
+                                button.setOnCheckedChangeListener(self);
+                            }
+                        }
+                    }
+                });
+
 
 
         sliderView = findViewById(R.id.imageSlider);
@@ -102,8 +138,27 @@ public class RestaurantsListActivity extends AppCompatActivity implements Compou
 
 
     @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+    public void onCheckedChanged(final CompoundButton buttonView, final boolean isChecked) {
         buttonView.startAnimation(scaleAnimation);
+        final String restaurant = ((ToggleButton) buttonView).getTextOn().toString();
+        db.collection("favoriteList").document(userID).get().addOnCompleteListener(
+            new OnCompleteListener<DocumentSnapshot>() {
+                 @Override
+                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                     if (task.isSuccessful()) {
+                         DocumentSnapshot document = task.getResult();
+                         ArrayList<String> list = (ArrayList<String>)document.get("list");
+                         if(isChecked) {
+                             if(!list.contains(restaurant)) {
+                                 list.add(restaurant);
+                             }
+                         } else {
+                             list.remove(list.indexOf(restaurant));
+                         }
+                         db.collection("favoriteList").document(userID).update("list", list);
+                     }
+                 }
+         });
         switch(buttonView.getId()){
             case R.id.button_favorite_b1:
                 break;

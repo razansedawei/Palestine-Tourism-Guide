@@ -88,12 +88,12 @@ tools:context=".MainActivity">
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:background="@drawable/button_favorite"
-                        android:checked="false"
                         android:layout_alignParentRight="true"
                         android:layout_centerInParent="true"
-                        android:text=""
+                        android:text="Orgada Burger"
                         android:textOff=""
-                        android:textOn="" />
+                        android:textColor="@android:color/transparent"
+                        android:textOn="Orgada Burger" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -130,12 +130,12 @@ tools:context=".MainActivity">
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/button_favorite"
-                    android:checked="false"
                     android:layout_alignParentRight="true"
                     android:layout_centerInParent="true"
-                    android:text=""
+                    android:text="Pizza House"
+                    android:textColor="@android:color/transparent"
                     android:textOff=""
-                    android:textOn="" />
+                    android:textOn="Pizza House" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -172,12 +172,12 @@ tools:context=".MainActivity">
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/button_favorite"
-                    android:checked="false"
                     android:layout_alignParentRight="true"
                     android:layout_centerInParent="true"
-                    android:text=""
+                    android:text="Alf Layla W Layla"
                     android:textOff=""
-                    android:textOn="" />
+                    android:textColor="@android:color/transparent"
+                    android:textOn="Alf Layla W Layla" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -213,12 +213,12 @@ tools:context=".MainActivity">
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/button_favorite"
-                    android:checked="false"
                     android:layout_alignParentRight="true"
                     android:layout_centerInParent="true"
-                    android:text=""
+                    android:text="90's Burger"
                     android:textOff=""
-                    android:textOn="" />
+                    android:textColor="@android:color/transparent"
+                    android:textOn="90's Burger" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -255,12 +255,12 @@ tools:context=".MainActivity">
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/button_favorite"
-                    android:checked="false"
                     android:layout_alignParentRight="true"
                     android:layout_centerInParent="true"
-                    android:text=""
+                    android:text="Nosha Cafe"
                     android:textOff=""
-                    android:textOn="" />
+                    android:textColor="@android:color/transparent"
+                    android:textOn="Nosha Cafe" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -297,12 +297,12 @@ tools:context=".MainActivity">
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/button_favorite"
-                    android:checked="false"
                     android:layout_alignParentRight="true"
                     android:layout_centerInParent="true"
-                    android:text=""
+                    android:text="KFC"
                     android:textOff=""
-                    android:textOn="" />
+                    android:textColor="@android:color/transparent"
+                    android:textOn="KFC" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>

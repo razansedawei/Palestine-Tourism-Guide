@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import java.util.ArrayList;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,7 +30,7 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
 
     public static final String TAG = "TAG";
-    EditText mFirstName,mLastName,mEmail,mPassword;
+    EditText mFirstName,mLastName,mEmail,mPassword,mbio;
     Button mRegister;
     FirebaseAuth fAuth;
     ProgressBar progressbar1;
@@ -46,6 +47,7 @@ public class RegisterActivity extends AppCompatActivity {
         mEmail=findViewById(R.id.text3);
         mPassword=findViewById(R.id.text4);
         mRegister=findViewById(R.id.button1);
+        mbio=findViewById(R.id.bio);
 
 
 
@@ -62,6 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String password = mPassword.getText().toString().trim();
                 final String fname = mFirstName.getText().toString();
                 final String lname = mLastName.getText().toString();
+                final String bio = mbio.getText().toString();
 
 
                 if (TextUtils.isEmpty(email)) {
@@ -89,6 +92,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Map<String, Object> user = new HashMap<>();
                             user.put("first name", fname);
                             user.put("last name", lname);
+                            user.put("My bio", bio);
                             user.put("email", email);
 
                             db.collection("User").document(userID)
@@ -105,6 +109,10 @@ public class RegisterActivity extends AppCompatActivity {
                                             Log.w(TAG, "Error writing document", e);
                                         }
                                     });
+                            Map<String, ArrayList<String>> userFavorite = new HashMap<>();
+                            userFavorite.put("list", new ArrayList<String>());
+                            db.collection("favoriteList").document(userID)
+                                    .set(userFavorite);
 
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {

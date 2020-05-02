@@ -25,7 +25,6 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth fAlth;
     ProgressBar progressbar1;
     TextView mTextView;
-    Button visitbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (task.isSuccessful()){
                             Toast.makeText(LoginActivity.this, "Log in seccessfully.", Toast.LENGTH_SHORT).show();
+                            String user = fAlth.getCurrentUser().getUid();
+                            Toast.makeText(LoginActivity.this, user, Toast.LENGTH_LONG).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         }
                         else {
@@ -79,24 +80,14 @@ public class LoginActivity extends AppCompatActivity {
                 });
             }
         });
-        visitbtn = findViewById(R.id.button3);
-        visitbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openloginActivity();
-            }
-        });
+
+
         mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openRegisternActivity();
             }
         });
-    }
-
-    public void openloginActivity(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 
     public void openRegisternActivity(){

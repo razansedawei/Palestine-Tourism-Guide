@@ -53,8 +53,10 @@
                     android:layout_marginTop="50px"
                     android:layout_width="500px"
                     android:layout_height="500px"
-                    android:src="@drawable/ro"/>
+                    android:background="@drawable/fovprofile"
+                    android:src="@drawable/ic_stat_name"/>
                 <TextView
+                    android:id="@+id/user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="26sp"
