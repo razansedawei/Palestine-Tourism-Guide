@@ -32,6 +32,17 @@ tools:context=".MainActivity">
     app:sliderIndicatorUnselectedColor="#FFF"
     app:sliderScrollTimeInSec="1"
     app:sliderStartAutoCycle="true" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/imageSlider"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:id="@+id/location1"
+        android:background="#fff"
+        android:src="@drawable/ic_location_on_black_24dp"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

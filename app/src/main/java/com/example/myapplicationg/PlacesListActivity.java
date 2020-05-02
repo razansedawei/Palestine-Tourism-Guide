@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -24,6 +26,7 @@ public class PlacesListActivity extends AppCompatActivity implements CompoundBut
     SliderView sliderView;
     private SliderAdapterExample adapter;
     Button toPlace;
+    Button goToPlaceLocation;
     ScaleAnimation scaleAnimation = new ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF, 0.7f, Animation.RELATIVE_TO_SELF, 0.7f);
     BounceInterpolator bounceInterpolator = new BounceInterpolator();
 
@@ -76,6 +79,37 @@ public class PlacesListActivity extends AppCompatActivity implements CompoundBut
 
         });
 
+        goToPlaceLocation = findViewById(R.id.location);
+        goToPlaceLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                MarkerOptions city = new MarkerOptions().position(new LatLng(32.2264821,35.2685216)).title("Nablus");
+
+                ArrayList<MarkerOptions> markers = new ArrayList<MarkerOptions>();
+                markers.add(new MarkerOptions().position(new LatLng(32.2248015,35.255863)).title("Jamal Abde_Alnasser Park").snippet("Open at:6 am"));
+                markers.add( new MarkerOptions().position(new LatLng(32.2339747,35.2557228)).title("Sama Nablus"));
+                markers.add(  new MarkerOptions().position(new LatLng(32.2566961,35.3333462)).title("Butterflies"));
+                markers.add(  new MarkerOptions().position(new LatLng(32.2782402,35.2073878)).title("Sebastia"));
+                markers.add(  new MarkerOptions().position(new LatLng(32.2270557,35.224414)).title("Al-Najah National University"));
+
+
+                openMapActivity(city, markers);
+            }
+        });
+
+
+
+    }
+
+
+
+    public void openMapActivity(MarkerOptions center, ArrayList markers){
+
+        Intent intent = new Intent(this, MapActivity.class);
+        intent.putExtra("city", center);
+        intent.putExtra("markers", markers);
+        startActivity(intent);
     }
     public void renewItems(View view) {
         List<SliderItem> sliderItemList = new ArrayList<>();

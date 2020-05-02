@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -26,6 +28,7 @@ public class RestaurantsListActivity extends AppCompatActivity implements Compou
     SliderView sliderView;
     private SliderAdapterExample adapter;
     Button goToRestBtn;
+    Button goToRestLocation;
     ScaleAnimation scaleAnimation = new ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF, 0.7f, Animation.RELATIVE_TO_SELF, 0.7f);
     BounceInterpolator bounceInterpolator = new BounceInterpolator();
 
@@ -36,6 +39,7 @@ public class RestaurantsListActivity extends AppCompatActivity implements Compou
 
         BottomNavigationView bottomNavigationView =findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationBarClickListener(this));
+
 
 
         scaleAnimation.setDuration(500);
@@ -80,6 +84,37 @@ public class RestaurantsListActivity extends AppCompatActivity implements Compou
 
         });
 
+
+        goToRestLocation = findViewById(R.id.location1);
+        goToRestLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                MarkerOptions city = new MarkerOptions().position(new LatLng(32.2264821,35.2685216)).title("Nablus");
+
+                ArrayList<MarkerOptions> markers = new ArrayList<MarkerOptions>();
+                markers.add(new MarkerOptions().position(new LatLng(32.2224774,35.2356604)).title("Orgada Burger").snippet("tel:+970 9 235 7166"));
+                markers.add( new MarkerOptions().position(new LatLng(32.1216474,35.3736897)).title("Pizza House").snippet("tel:+970 9 234 3440"));
+                markers.add(  new MarkerOptions().position(new LatLng(32.2297363,35.2384854)).title("Alf layla w layla").snippet("tel:+970 9 235 1999"));
+                markers.add(  new MarkerOptions().position(new LatLng(32.2207347,35.2406842)).title("90'S Burger").snippet("tel:+970 9 235 9090"));
+                markers.add(  new MarkerOptions().position(new LatLng(32.2213882,35.2470893)).title("Nosha Cafe"));
+                markers.add(  new MarkerOptions().position(new LatLng(32.2235588,35.2515456)).title("KFC"));
+
+
+                openMapActivity(city, markers);
+            }
+        });
+
+
+    }
+
+
+    public void openMapActivity(MarkerOptions center, ArrayList markers){
+
+        Intent intent = new Intent(this, MapActivity.class);
+        intent.putExtra("city", center);
+        intent.putExtra("markers", markers);
+        startActivity(intent);
     }
     public void renewItems(View view) {
         List<SliderItem> sliderItemList = new ArrayList<>();

@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -24,6 +26,8 @@ public class HotelListActvity extends AppCompatActivity implements CompoundButto
     SliderView sliderView;
     private SliderAdapterExample adapter;
     Button HotelBtn;
+    Button  goToHotelLocation;
+
     ScaleAnimation scaleAnimation = new ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF, 0.7f, Animation.RELATIVE_TO_SELF, 0.7f);
     BounceInterpolator bounceInterpolator = new BounceInterpolator();
 
@@ -79,6 +83,32 @@ public class HotelListActvity extends AppCompatActivity implements CompoundButto
 
         });
 
+        goToHotelLocation = findViewById(R.id.location2);
+        goToHotelLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                MarkerOptions city = new MarkerOptions().position(new LatLng(32.2264821,35.2685216)).title("Nablus");
+
+                ArrayList<MarkerOptions> markers = new ArrayList<MarkerOptions>();
+                markers.add(new MarkerOptions().position(new LatLng(32.2339747,35.2557228)).title("Villa Sama Nablus"));
+                markers.add( new MarkerOptions().position(new LatLng(32.2271977,35.2151301)).title("Yildis Palace Hotel"));
+                markers.add(  new MarkerOptions().position(new LatLng(32.2271977,35.2151301)).title("Golden Tree Hotel"));
+                markers.add(  new MarkerOptions().position(new LatLng(32.2199442,35.2447801)).title("Golden rose Hotel"));
+                markers.add(  new MarkerOptions().position(new LatLng(32.2208025,35.2672881)).title("Saleam Effendi Hotel"));
+
+
+                openMapActivity(city, markers);
+            }
+        });
+
+    }
+    public void openMapActivity(MarkerOptions center, ArrayList markers){
+
+        Intent intent = new Intent(this, MapActivity.class);
+        intent.putExtra("city", center);
+        intent.putExtra("markers", markers);
+        startActivity(intent);
     }
 
     public void renewItems(View view) {
