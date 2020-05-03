@@ -81,6 +81,7 @@ FirebaseUser fireuser;
         });
 
         signout1=findViewById(R.id.signout);
+
         signout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
