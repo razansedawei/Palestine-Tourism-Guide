@@ -31,6 +31,8 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+
+
         BottomNavigationView bottomNavigationView =findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.profile);
         bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationBarClickListener(this));

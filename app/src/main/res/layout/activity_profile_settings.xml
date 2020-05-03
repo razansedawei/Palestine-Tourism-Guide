@@ -20,15 +20,30 @@
         tools:layout_editor_absoluteY="-32dp">
 
         <ImageView
-            android:layout_width="170dp"
+            android:id="@+id/profilesettingimg"
+            android:layout_width="150dp"
             android:layout_height="120dp"
-            android:layout_marginRight="70dp"
+            android:layout_marginRight="85dp"
             android:src="@drawable/ic_stat_name"
             android:background="@drawable/textbox_back"/>
 
         <EditText
+            android:id="@+id/temail"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bioprofile"
+            android:hint="  Change Email"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="22sp"
+            android:inputType="textEmailAddress"
+            android:layout_marginRight="10dp"/>
+
+        <EditText
             android:id="@+id/tname"
-            android:layout_width="330dp"
+            android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/bioprofile"
@@ -36,11 +51,14 @@
             android:padding="8dp"
             android:textColor="@color/colorPrimary"
             android:textColorHint="@color/colorPrimary"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:layout_marginRight="10dp"/>
+
+
 
         <EditText
             android:id="@+id/tBio"
-            android:layout_width="330dp"
+            android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/bioprofile"
@@ -48,12 +66,24 @@
             android:padding="5dp"
             android:textColor="@color/colorPrimary"
             android:textColorHint="@color/colorPrimary"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:layout_marginRight="10dp"/>
+
+            <Button
+                android:id="@+id/savechange"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/textbox_back"
+                android:text="save"
+                android:textColor="#ffffff"
+                android:textSize="22dp" />
+
         <Button
             android:id="@+id/signout"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/textbox_back"
             android:text="Sign out"
             android:textColor="#ffffff"
