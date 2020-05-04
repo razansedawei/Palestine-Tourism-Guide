@@ -79,7 +79,7 @@ public class RestaurantsListActivity extends AppCompatActivity implements Compou
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
-                            ArrayList<String> list = (ArrayList<String>)document.get("list");
+                            ArrayList<String> list = (ArrayList<String>)document.get("restaurants");
                             for(ToggleButton button : favoriteButtons){
                                 if(list.contains(button.getTextOn().toString())){
                                     button.setChecked(true);
@@ -182,7 +182,7 @@ public class RestaurantsListActivity extends AppCompatActivity implements Compou
                  public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                      if (task.isSuccessful()) {
                          DocumentSnapshot document = task.getResult();
-                         ArrayList<String> list = (ArrayList<String>)document.get("list");
+                         ArrayList<String> list = (ArrayList<String>)document.get("restaurants");
                          if(isChecked) {
                              if(!list.contains(restaurant)) {
                                  list.add(restaurant);
@@ -190,7 +190,7 @@ public class RestaurantsListActivity extends AppCompatActivity implements Compou
                          } else {
                              list.remove(list.indexOf(restaurant));
                          }
-                         db.collection("favoriteList").document(userID).update("list", list);
+                         db.collection("favoriteList").document(userID).update("restaurants", list);
                      }
                  }
          });

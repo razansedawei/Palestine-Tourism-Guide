@@ -24,7 +24,6 @@
         <ImageView
             android:layout_width="200dp"
             android:layout_height="120dp"
-            android:src="@drawable/ic_stat_name"
             android:background="@drawable/textbox_back"/>
 
         <EditText

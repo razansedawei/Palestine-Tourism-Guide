@@ -23,7 +23,6 @@
             android:layout_width="170dp"
             android:layout_height="120dp"
             android:layout_marginRight="70dp"
-            android:src="@drawable/ic_stat_name"
             android:background="@drawable/textbox_back"/>
 
         <EditText

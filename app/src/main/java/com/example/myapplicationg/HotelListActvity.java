@@ -76,7 +76,7 @@ public class HotelListActvity extends AppCompatActivity implements CompoundButto
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
-                            ArrayList<String> list = (ArrayList<String>)document.get("list");
+                            ArrayList<String> list = (ArrayList<String>)document.get("hotels");
                             for(ToggleButton button : favoriteButtons){
                                 if(list.contains(button.getTextOn().toString())){
                                     button.setChecked(true);
@@ -174,7 +174,7 @@ public class HotelListActvity extends AppCompatActivity implements CompoundButto
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
-                            ArrayList<String> list = (ArrayList<String>)document.get("list");
+                            ArrayList<String> list = (ArrayList<String>)document.get("hotels");
                             if(isChecked) {
                                 if(!list.contains(hotel)) {
                                     list.add(hotel);
@@ -182,7 +182,7 @@ public class HotelListActvity extends AppCompatActivity implements CompoundButto
                             } else {
                                 list.remove(list.indexOf(hotel));
                             }
-                            db.collection("favoriteList").document(userID).update("list", list);
+                            db.collection("favoriteList").document(userID).update("hotels", list);
                         }
                     }
                 });

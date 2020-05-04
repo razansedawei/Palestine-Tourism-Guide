@@ -73,7 +73,7 @@ public class PlacesListActivity extends AppCompatActivity implements CompoundBut
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
-                            ArrayList<String> list = (ArrayList<String>)document.get("list");
+                            ArrayList<String> list = (ArrayList<String>)document.get("places");
                             for(ToggleButton button : favoriteButtons){
                                 if(list.contains(button.getTextOn().toString())){
                                     button.setChecked(true);
@@ -176,7 +176,7 @@ public class PlacesListActivity extends AppCompatActivity implements CompoundBut
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
-                            ArrayList<String> list = (ArrayList<String>)document.get("list");
+                            ArrayList<String> list = (ArrayList<String>)document.get("places");
                             if(isChecked) {
                                 if(!list.contains(place)) {
                                     list.add(place);
@@ -184,7 +184,7 @@ public class PlacesListActivity extends AppCompatActivity implements CompoundBut
                             } else {
                                 list.remove(list.indexOf(place));
                             }
-                            db.collection("favoriteList").document(userID).update("list", list);
+                            db.collection("favoriteList").document(userID).update("places", list);
                         }
                     }
                 });

@@ -110,7 +110,9 @@ public class RegisterActivity extends AppCompatActivity {
                                         }
                                     });
                             Map<String, ArrayList<String>> userFavorite = new HashMap<>();
-                            userFavorite.put("list", new ArrayList<String>());
+                            userFavorite.put("places", new ArrayList<String>());
+                            userFavorite.put("restaurants", new ArrayList<String>());
+                            userFavorite.put("hotels", new ArrayList<String>());
                             db.collection("favoriteList").document(userID)
                                     .set(userFavorite);
 
