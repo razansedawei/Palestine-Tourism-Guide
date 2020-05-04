@@ -56,7 +56,6 @@ public class RegisterActivity extends AppCompatActivity {
         progressbar1=findViewById(R.id.progressBar2);
 
 
-
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +64,8 @@ public class RegisterActivity extends AppCompatActivity {
                 final String fname = mFirstName.getText().toString();
                 final String lname = mLastName.getText().toString();
                 final String bio = mbio.getText().toString();
+
+                fullname = fname+" "+lname;
 
 
                 if (TextUtils.isEmpty(email)) {
@@ -90,9 +91,8 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this, "User created.", Toast.LENGTH_SHORT).show();
                             userID=fAuth.getCurrentUser().getUid();
                             Map<String, Object> user = new HashMap<>();
-                            user.put("first name", fname);
-                            user.put("last name", lname);
-                            user.put("My bio", bio);
+                            user.put("Fullname", fullname);
+                            user.put("Bio", bio);
                             user.put("email", email);
 
                             db.collection("User").document(userID)

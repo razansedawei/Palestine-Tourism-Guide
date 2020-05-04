@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,22 +19,79 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class ProfileSettingsActivity extends AppCompatActivity {
-Button repassword , signout1 , deleteaccount;
+Button repassword , signout1 , deleteaccount , mchange;
+EditText memail, mrename , mrebio;
+ImageView reprofileimg;
 FirebaseAuth firbas;
+FirebaseFirestore fstore;
 FirebaseUser fireuser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_settings);
 
+        mrebio=findViewById(R.id.tBio);
+        mrename=findViewById(R.id.tname);
+        mchange= findViewById(R.id.savechange);
+        reprofileimg=findViewById(R.id.profilesettingimg);
+        memail=findViewById(R.id.temail);
         deleteaccount=findViewById(R.id.delete);
 
+        fstore=FirebaseFirestore.getInstance();
         firbas=FirebaseAuth.getInstance();
         fireuser=firbas.getCurrentUser();
+
+
+        reprofileimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ProfileSettingsActivity.this, "Password Reset Successfully.", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+        mchange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String email = memail.getText().toString();
+                fireuser.updateEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        DocumentReference documentReference = fstore.collection("User").document(fireuser.getUid());
+                        Map<String,Object> edited = new HashMap<>();
+                        edited.put("email", email);
+                        edited.put("Fullname",mrename.getText().toString());
+                        edited.put("Bio",mrebio.getText().toString());
+
+                        documentReference.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(ProfileSettingsActivity.this, "Profile info updated.", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+                            finish();
+
+                            }
+                        });
+
+                    }
+                });
+
+            }
+        });
+
+
+
         repassword=findViewById(R.id.changepassword);
 
         repassword.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +139,7 @@ FirebaseUser fireuser;
         });
 
         signout1=findViewById(R.id.signout);
+
         signout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
