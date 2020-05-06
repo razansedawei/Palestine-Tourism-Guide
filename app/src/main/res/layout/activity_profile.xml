@@ -50,10 +50,11 @@
                 android:background="@drawable/bioprofile">
 
                 <ImageView
+                    android:id="@+id/profpic"
                     android:layout_marginTop="50px"
                     android:layout_width="470px"
                     android:layout_height="450px"
-                    android:background="@drawable/fovprofile"
+                    android:background="#FF008577"
                     android:src="@drawable/ic_stat_name"/>
                 <TextView
                     android:id="@+id/user_name"

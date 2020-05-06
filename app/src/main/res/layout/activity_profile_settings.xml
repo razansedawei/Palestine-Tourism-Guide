@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,13 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="-32dp">
 
-        <ImageView
-            android:id="@+id/profilesettingimg"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginRight="85dp"
-            android:src="@drawable/ic_stat_name"
-            android:background="@drawable/textbox_back"/>
+
 
         <EditText
             android:id="@+id/temail"
@@ -126,4 +120,4 @@
 
 
 </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

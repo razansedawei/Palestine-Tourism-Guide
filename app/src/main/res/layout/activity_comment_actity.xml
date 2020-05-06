@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".commentActity">
+
+    <EditText
+        android:id="@+id/commenttext"
+        android:layout_width="382dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/Listcomment"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginRight="65dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Add a comment"
+        android:textColor="#75000000"
+        android:textColorHighlight="#9C27B0"
+        android:textColorHint="#FC0C0C0C"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="682dp" />
+
+    <ListView
+        android:id="@+id/Listcomment"
+        android:layout_width="400dp"
+        android:layout_height="645dp"></ListView>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_send_black_24dp" />
+
+</RelativeLayout>

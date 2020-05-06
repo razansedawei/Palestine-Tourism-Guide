@@ -1,66 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/comment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/bioprofile">
 
-<com.smarteist.autoimageslider.SliderView
-    android:id="@+id/imageSlider"
-    android:layout_width="match_parent"
-    android:layout_height="300dp"
-    app:sliderAnimationDuration="600"
-    app:sliderAutoCycleDirection="back_and_forth"
-    app:sliderAutoCycleEnabled="true"
-    app:sliderIndicatorAnimationDuration="600"
-    app:sliderIndicatorGravity="center_horizontal|bottom"
-    app:sliderIndicatorMargin="15dp"
-    app:sliderIndicatorOrientation="horizontal"
-    app:sliderIndicatorPadding="3dp"
-    app:sliderIndicatorRadius="2dp"
-    app:sliderIndicatorSelectedColor="#5A5A5A"
-    app:sliderIndicatorUnselectedColor="#FFF"
-    app:sliderScrollTimeInSec="1"
-    app:sliderStartAutoCycle="true" />
-
-    <LinearLayout
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-      <TextView
-          android:paddingLeft="20dp"
-          android:id="@+id/textnameforplace"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:textSize="25dp"
-          android:textColor="#000000"
-          android:text="here will put name"
-          android:layout_marginTop="20dp"/>
-    <ImageButton
-        android:id="@+id/map"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_below="@id/rating_bar"
+        android:layout_alignParentBottom="true"
         android:background="#ffffff"
-        android:layout_marginLeft="90dp"
-        android:src="@drawable/ic_location_on_black_24dp" />
-    </LinearLayout>
+        app:menu="@menu/navigation_bar" />
+
+
+    <com.smarteist.autoimageslider.SliderView
+        android:id="@+id/imageSlider"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="60dp"
+        app:sliderAnimationDuration="600"
+        app:sliderAutoCycleDirection="back_and_forth"
+        app:sliderAutoCycleEnabled="true"
+        app:sliderIndicatorAnimationDuration="600"
+        app:sliderIndicatorGravity="center_horizontal|bottom"
+        app:sliderIndicatorMargin="15dp"
+        app:sliderIndicatorOrientation="horizontal"
+        app:sliderIndicatorPadding="3dp"
+        app:sliderIndicatorRadius="2dp"
+        app:sliderIndicatorSelectedColor="#5A5A5A"
+        app:sliderIndicatorUnselectedColor="#FFF"
+        app:sliderScrollTimeInSec="1"
+        app:sliderStartAutoCycle="true" />
+
+
+    <TextView
+        android:id="@+id/textnameforHotel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="20dp"
+        android:text="here will put name"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:background="@drawable/fovprofile"/>
+
     <RatingBar
+        android:id="@+id/rating_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageSlider"
-        android:paddingTop="12dp"
-        android:id="@+id/rating_bar"
         android:numStars="5"
+        android:paddingTop="20dp"
         android:stepSize="1" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="188dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rating_bar"
+        android:layout_alignEnd="@+id/rating_bar"
+        android:layout_alignRight="@+id/rating_bar"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/fovprofile"
+        android:text="See The review"
+        android:textColorHighlight="#FFFFFF" />
 
-</LinearLayout>
-</ScrollView>
+
+</RelativeLayout>

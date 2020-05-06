@@ -4,8 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        app:menu="@menu/navigation_bar"/>
+
 
     <com.smarteist.autoimageslider.SliderView
         android:id="@+id/imageSlider"
@@ -23,24 +32,27 @@
         app:sliderIndicatorSelectedColor="#5A5A5A"
         app:sliderIndicatorUnselectedColor="#FFF"
         app:sliderScrollTimeInSec="1"
-        app:sliderStartAutoCycle="true" />
+        app:sliderStartAutoCycle="true"
+        android:layout_marginTop="80dp"/>
 
+    <TextView
+        android:paddingLeft="20dp"
+        android:id="@+id/textnameforPlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:textColor="#000000"
+        android:text="here will put name"
+        android:layout_marginTop="20dp"/>
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageSlider"
-        android:paddingTop="12dp"
+        android:paddingTop="20dp"
         android:id="@+id/rating_bar"
         android:numStars="5"
         android:stepSize="1" />
 
-    <ImageButton
-        android:id="@+id/map"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_below="@id/rating_bar"
-        android:background="#ffffffff"
-        android:src="@drawable/ic_location_on_black_24dp" />
 
 
 </RelativeLayout>

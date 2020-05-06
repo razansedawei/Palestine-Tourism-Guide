@@ -21,7 +21,6 @@ public class RestaurantActivity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
     RatingBar ratingBar;
-    ImageButton showRestlocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,20 +34,6 @@ public class RestaurantActivity extends AppCompatActivity {
         sliderView.setSliderAdapter(adapter);
         renewItems(null);
 
-        showRestlocation = findViewById(R.id.map);
-        showRestlocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MarkerOptions city = new MarkerOptions().position(new LatLng(32.2264821,35.2685216)).title("Nablus");
-
-                ArrayList<MarkerOptions> markers = new ArrayList<MarkerOptions>();
-                markers.add(new MarkerOptions().position(new LatLng(32.2224774,35.231283)).title("Orgada Burgers").snippet("Tel: +970 9 235 7166"));
-
-
-                openRestMapActivity(city, markers);
-
-            }
-        });
 
         sliderView.setIndicatorAnimation(IndicatorAnimations.SLIDE); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);

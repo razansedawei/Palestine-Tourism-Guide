@@ -16,6 +16,7 @@
         android:background="#ffffff"
         app:menu="@menu/navigation_bar"/>
 
+
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/imageSlider"
             android:layout_width="match_parent"
@@ -227,8 +228,4 @@
     </androidx.cardview.widget.CardView>
 </GridLayout>
     </ScrollView>
-
-
-
-
 </RelativeLayout>

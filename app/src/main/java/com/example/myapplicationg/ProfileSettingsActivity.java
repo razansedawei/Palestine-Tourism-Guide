@@ -4,9 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +32,6 @@ import java.util.Map;
 public class ProfileSettingsActivity extends AppCompatActivity {
 Button repassword , signout1 , deleteaccount , mchange;
 EditText memail, mrename , mrebio;
-ImageView reprofileimg;
 FirebaseAuth firbas;
 FirebaseFirestore fstore;
 FirebaseUser fireuser;
@@ -43,7 +45,6 @@ FirebaseUser fireuser;
         mrebio=findViewById(R.id.tBio);
         mrename=findViewById(R.id.tname);
         mchange= findViewById(R.id.savechange);
-        reprofileimg=findViewById(R.id.profilesettingimg);
         memail=findViewById(R.id.temail);
         deleteaccount=findViewById(R.id.delete);
 
@@ -51,14 +52,6 @@ FirebaseUser fireuser;
         firbas=FirebaseAuth.getInstance();
         fireuser=firbas.getCurrentUser();
 
-
-        reprofileimg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(ProfileSettingsActivity.this, "Password Reset Successfully.", Toast.LENGTH_SHORT).show();
-
-            }
-        });
 
 
         mchange.setOnClickListener(new View.OnClickListener() {

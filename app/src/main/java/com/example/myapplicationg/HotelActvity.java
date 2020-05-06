@@ -21,7 +21,6 @@ public class HotelActvity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
     RatingBar ratingBar;
-    ImageButton showHotelLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,19 +34,6 @@ public class HotelActvity extends AppCompatActivity {
         sliderView.setSliderAdapter(adapter);
         renewItems(null);
 
-        showHotelLocation = findViewById(R.id.map);
-        showHotelLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MarkerOptions city = new MarkerOptions().position(new LatLng(32.2264821,35.2685216)).title("Nablus");
-
-                ArrayList<MarkerOptions> markers = new ArrayList<MarkerOptions>();
-                markers.add(new MarkerOptions().position(new LatLng(32.2262644,35.2100038)).title("Yildiz palace Hotel").snippet("+970 599 653 635"));
-
-
-                openHotelMapActivity(city, markers);
-            }
-        });
 
         sliderView.setIndicatorAnimation(IndicatorAnimations.SLIDE); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);

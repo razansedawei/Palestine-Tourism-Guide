@@ -21,7 +21,6 @@ public class PlaceActvity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
     RatingBar ratingBar;
-    ImageButton showPlaceLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,20 +34,6 @@ public class PlaceActvity extends AppCompatActivity {
         sliderView.setSliderAdapter(adapter);
         renewItems(null);
 
-        showPlaceLocation = findViewById(R.id.map);
-        showPlaceLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MarkerOptions city = new MarkerOptions().position(new LatLng(32.2264821,35.2685216)).title("Nablus");
-
-                ArrayList<MarkerOptions> markers = new ArrayList<MarkerOptions>();
-                markers.add(new MarkerOptions().position(new LatLng(32.2237739,35.2520702)).title("Jamal Abdul_Alnasser Park").snippet("Open at: 6AM–10PM"));
-
-
-                openPlaceMapActivity(city, markers);
-
-            }
-        });
 
         sliderView.setIndicatorAnimation(IndicatorAnimations.SLIDE); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
