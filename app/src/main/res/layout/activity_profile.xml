@@ -97,11 +97,13 @@
             </LinearLayout>
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="121dp"
-            android:layout_height="111dp"
-            app:srcCompat="@android:drawable/ic_input_add" />
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/bioprofile"
+                android:src="@drawable/ic_add_black_24dp" />
 
     </LinearLayout>
     </ScrollView>

@@ -8,14 +8,14 @@
 
     <EditText
         android:id="@+id/commenttext"
-        android:layout_width="382dp"
-        android:layout_height="35dp"
+        android:layout_width="464dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/Listcomment"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginRight="65dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Add a comment"
@@ -28,12 +28,20 @@
 
     <ListView
         android:id="@+id/Listcomment"
-        android:layout_width="400dp"
-        android:layout_height="645dp"></ListView>
+        android:layout_width="464dp"
+        android:layout_height="675dp"
+       ></ListView>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/commenttext"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="23dp"
+        android:layout_marginRight="23dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/bioprofile"
         android:src="@drawable/ic_send_black_24dp" />
 
 </RelativeLayout>
