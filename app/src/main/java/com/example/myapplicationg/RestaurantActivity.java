@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RatingBar;
 
@@ -21,14 +22,25 @@ public class RestaurantActivity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
     RatingBar ratingBar;
+    Button mRest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant);
+
+
+        mRest=findViewById(R.id.buttonRest);
+        mRest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Addcomment();
+            }
+        });
+
         //rating
         ratingBar=findViewById(R.id.rating_bar);
-        sliderView = findViewById(R.id.imageSlider);
+        sliderView = findViewById(R.id.imageSliderRest);
 
         adapter = new SliderAdapterExample(this);
         sliderView.setSliderAdapter(adapter);
@@ -44,6 +56,7 @@ public class RestaurantActivity extends AppCompatActivity {
         sliderView.setAutoCycle(true);
         sliderView.startAutoCycle();
     }
+
 
     public void renewItems(View view) {
         List<SliderItem> sliderItemList = new ArrayList<>();
@@ -68,6 +81,9 @@ public class RestaurantActivity extends AppCompatActivity {
     }
 
 
-
+    private void Addcomment() {
+        Intent comment = new Intent(this, commentActity.class);
+        startActivity(comment);
+    }
 
 }

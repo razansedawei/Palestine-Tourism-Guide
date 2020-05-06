@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RatingBar;
 
@@ -21,11 +22,21 @@ public class HotelActvity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
     RatingBar ratingBar;
+    Button mcomment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_actvity);
+
+        mcomment=findViewById(R.id.buttonhotel);
+        mcomment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Addcomment();
+            }
+        });
+
         //rating
         ratingBar = findViewById(R.id.rating_bar);
         sliderView = findViewById(R.id.imageSlider);
@@ -69,5 +80,8 @@ public class HotelActvity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    public void Addcomment(){
+        Intent comment = new Intent(this, commentActity.class);
+        startActivity(comment);
+    }
 }

@@ -6,20 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#ffffff"
-        app:menu="@menu/navigation_bar"/>
+        app:menu="@menu/navigation_bar" />
 
 
     <com.smarteist.autoimageslider.SliderView
         android:id="@+id/imageSlider"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:layout_marginTop="60dp"
         app:sliderAnimationDuration="600"
         app:sliderAutoCycleDirection="back_and_forth"
         app:sliderAutoCycleEnabled="true"
@@ -32,27 +32,43 @@
         app:sliderIndicatorSelectedColor="#5A5A5A"
         app:sliderIndicatorUnselectedColor="#FFF"
         app:sliderScrollTimeInSec="1"
-        app:sliderStartAutoCycle="true"
-        android:layout_marginTop="80dp"/>
+        app:sliderStartAutoCycle="true" />
+
 
     <TextView
-        android:paddingLeft="20dp"
-        android:id="@+id/textnameforPlace"
-        android:layout_width="wrap_content"
+        android:id="@+id/textnameforHotel"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="20dp"
+        android:text="   here will put name"
+        android:textColor="#FFFFFF"
         android:textSize="25dp"
-        android:textColor="#000000"
-        android:text="here will put name"
-        android:layout_marginTop="20dp"/>
+        android:background="@drawable/fovprofile"/>
+
     <RatingBar
+        android:id="@+id/rating_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageSlider"
-        android:paddingTop="20dp"
-        android:id="@+id/rating_bar"
         android:numStars="5"
+        android:paddingTop="20dp"
         android:stepSize="1" />
 
+    <Button
+        android:id="@+id/buttonPlace"
+        android:layout_width="188dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rating_bar"
+        android:layout_alignEnd="@+id/rating_bar"
+        android:layout_alignRight="@+id/rating_bar"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/fovprofile"
+        android:text="See The review"
+        android:textColorHighlight="#FFFFFF"
+        android:textColor="#FFFFFF"/>
 
 
 </RelativeLayout>
