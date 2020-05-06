@@ -29,6 +29,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -73,10 +74,21 @@ public class ProfileActivity extends AppCompatActivity {
         mbio=findViewById(R.id.myBio);
         reprofileimg=findViewById(R.id.profpic);
 
-        firestorref= FirebaseStorage.getInstance().getReference();
         fAult= FirebaseAuth.getInstance();
         fstore= FirebaseFirestore.getInstance();
         userId= fAult.getCurrentUser().getUid();
+        firestorref= FirebaseStorage.getInstance().getReference();
+
+        StorageReference ProfileRef = firestorref.child("user/"+userId+"/profile.jpg");
+        ProfileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(reprofileimg);
+
+            }
+        });
+
+
 
         DocumentReference documentReference = fstore.collection("User").document(userId);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -89,6 +101,8 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
+
+
 
 
         reprofileimg.setOnClickListener(new View.OnClickListener() {
@@ -108,10 +122,40 @@ public class ProfileActivity extends AppCompatActivity {
         if ( requestCode == 1000 ){
             if (resultCode == Activity.RESULT_OK){
                 Uri imageUri = data.getData();
-                reprofileimg.setImageURI(imageUri);
+                //reprofileimg.setImageURI(imageUri);
+
+                UpLoadImageToFirebase(imageUri);
             }
         }
     }
+
+    private void UpLoadImageToFirebase(Uri imageUri) {
+
+        final StorageReference fileRef = firestorref.child("user/"+userId+"/profile.jpg");
+        fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        Picasso.get().load(uri).into(reprofileimg);
+
+                    }
+                });
+
+
+                Toast.makeText(ProfileActivity.this,"Image uploaded", Toast.LENGTH_LONG).show();
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(ProfileActivity.this,"Failed", Toast.LENGTH_LONG).show();
+            }
+        });
+
+    }
+
 
 }
 

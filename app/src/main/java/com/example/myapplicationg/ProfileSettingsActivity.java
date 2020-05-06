@@ -197,6 +197,7 @@ FirebaseUser fireuser;
 
 
     public void opensignout(){
+        FirebaseAuth.getInstance().signOut();
         Intent isignout = new Intent(this, LoginActivity.class);
         startActivity(isignout);
     }
