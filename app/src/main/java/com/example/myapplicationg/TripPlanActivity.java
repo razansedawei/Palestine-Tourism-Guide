@@ -2,15 +2,19 @@ package com.example.myapplicationg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class TripPlanActivity extends AppCompatActivity {
     Button createtrip;
+    Button showtrip;
+
 
 
     @Override
@@ -30,6 +34,28 @@ public class TripPlanActivity extends AppCompatActivity {
             }
 
         });
+       showtrip = findViewById(R.id.show_trip);
+        showtrip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+
+        });
+
+
+    }
+    public void showDialog(){
+        final Dialog dialog=new Dialog(TripPlanActivity.this);
+        dialog.setContentView(R.layout.show_dialog);
+        Button btn=dialog.findViewById(R.id.dialog_btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               dialog.hide();
+            }
+        });
+        dialog.show();
     }
 
 

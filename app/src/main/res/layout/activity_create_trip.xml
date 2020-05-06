@@ -47,6 +47,20 @@
         android:textSize="25sp"
         android:textStyle="italic" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvItemSelected"
+        android:id="@+id/show_creat_dialog"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="OK"
+        android:paddingTop="30dp"
+
+        />
+
+
 
 
 </RelativeLayout>

@@ -20,7 +20,8 @@
         android:background="@drawable/fovprofile"
         android:text="Show Trip Plan"
         android:textColor="#ffffffff"
-        android:textSize="27sp" />
+        android:textSize="27sp"
+        />
 
     <Button
         android:layout_width="260dp"

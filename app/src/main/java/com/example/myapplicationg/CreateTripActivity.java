@@ -2,6 +2,9 @@ package com.example.myapplicationg;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Dialog;
+import android.content.Intent;
 import android.widget.Button;
 import android.view.View;
 import android.content.DialogInterface;
@@ -14,6 +17,7 @@ import java.util.ArrayList;
 public class CreateTripActivity extends AppCompatActivity {
     TextView textView;
     Button mOrder;
+    Button creatTrip;
     TextView mItemSelected;
     String[] listItems;
     boolean[] checkedItems;
@@ -106,7 +110,39 @@ public class CreateTripActivity extends AppCompatActivity {
                 mDialog.show();
             }
         });
+        creatTrip = findViewById(R.id.show_creat_dialog);
+        creatTrip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCreatDialog();
+            }
+
+        });
+
+
+
+
+
     }
+
+    public void showCreatDialog(){
+        final Dialog dialog=new Dialog(CreateTripActivity.this);
+        dialog.setContentView(R.layout.dialog_creat);
+        Button btn=dialog.findViewById(R.id.dialog_hide_btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.hide();
+            }
+        });
+        dialog.show();
+    }
+
+
+
+
+
+
 }
 
 
