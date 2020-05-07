@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".commentActity">
+    tools:context=".CommentActity">
+
+    <ListView
+        android:id="@+id/Listcomment"
+        android:layout_width="464dp"
+        android:layout_height="675dp"/>
 
     <EditText
         android:id="@+id/commenttext"
@@ -26,11 +31,7 @@
         tools:layout_editor_absoluteX="21dp"
         tools:layout_editor_absoluteY="682dp" />
 
-    <ListView
-        android:id="@+id/Listcomment"
-        android:layout_width="464dp"
-        android:layout_height="675dp"
-       ></ListView>
+
 
     <ImageButton
         android:layout_width="wrap_content"

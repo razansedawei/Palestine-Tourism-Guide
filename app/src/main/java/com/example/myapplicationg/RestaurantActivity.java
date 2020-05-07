@@ -6,10 +6,9 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.RatingBar;
+import android.widget.TextView;
 
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
@@ -24,11 +23,15 @@ public class RestaurantActivity extends AppCompatActivity {
     private SliderAdapterExample adapter;
     RatingBar ratingBar;
     Button mRest;
+    TextView tvName1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant);
+
+        tvName1=findViewById(R.id.textnameforRest);
+        tvName1.setText(getIntent().getStringExtra("FirstResName"));
 
         BottomNavigationView bottomNavigationView =findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
@@ -86,7 +89,7 @@ public class RestaurantActivity extends AppCompatActivity {
 
 
     private void Addcomment() {
-        Intent comment = new Intent(this, commentActity.class);
+        Intent comment = new Intent(this, CommentActity.class);
         startActivity(comment);
     }
 

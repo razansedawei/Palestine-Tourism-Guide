@@ -32,8 +32,9 @@ import java.util.List;
 public class HotelListActvity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener{
     SliderView sliderView;
     private SliderAdapterExample adapter;
-    Button HotelBtn;
+    Button HotelBtn ;
     Button  goToHotelLocation;
+    String firstHotelName = "Villa sama nablus";
 
     ScaleAnimation scaleAnimation = new ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF, 0.7f, Animation.RELATIVE_TO_SELF, 0.7f);
     BounceInterpolator bounceInterpolator = new BounceInterpolator();
@@ -161,6 +162,7 @@ public class HotelListActvity extends AppCompatActivity implements CompoundButto
 
     public void openHotelActivity(){
         Intent intent = new Intent(this, HotelActvity.class);
+        intent.putExtra("FirstHotelName",firstHotelName);
         startActivity(intent);
     }
 

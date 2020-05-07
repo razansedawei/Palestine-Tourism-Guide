@@ -6,10 +6,9 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.RatingBar;
+import android.widget.TextView;
 
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
@@ -23,12 +22,16 @@ public class HotelActvity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
     RatingBar ratingBar;
+    TextView tvName1;
     Button mcomment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_actvity);
+
+        tvName1=findViewById(R.id.textnameforHotel);
+        tvName1.setText(getIntent().getStringExtra("FirstHotelName"));
 
         BottomNavigationView bottomNavigationView =findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
@@ -86,7 +89,7 @@ public class HotelActvity extends AppCompatActivity {
     }
 
     public void Addcomment(){
-        Intent comment = new Intent(this, commentActity.class);
-        startActivity(comment);
+        Intent comment1 = new Intent(this, CommentActity.class);
+        startActivity(comment1);
     }
 }

@@ -38,6 +38,7 @@ public class RestaurantsListActivity extends AppCompatActivity implements Compou
     private SliderAdapterExample adapter;
     Button goToRestBtn;
     Button goToRestLocation;
+    String firstResName = " Orgada Burger ";
     ScaleAnimation scaleAnimation = new ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF, 0.7f, Animation.RELATIVE_TO_SELF, 0.7f);
     BounceInterpolator bounceInterpolator = new BounceInterpolator();
     FirebaseFirestore db;
@@ -168,6 +169,7 @@ public class RestaurantsListActivity extends AppCompatActivity implements Compou
 
     public void openResturentActivity(){
         Intent intent = new Intent(this, RestaurantActivity.class);
+        intent.putExtra("FirstResName",firstResName);
         startActivity(intent);
     }
 

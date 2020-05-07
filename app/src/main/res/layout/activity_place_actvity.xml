@@ -36,12 +36,12 @@
 
 
     <TextView
-        android:id="@+id/textnameforHotel"
+        android:id="@+id/textnameforPlace"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:paddingLeft="20dp"
-        android:text="   here will put name"
+        android:text="       here will put name"
         android:textColor="#FFFFFF"
         android:textSize="25dp"
         android:background="@drawable/fovprofile"/>

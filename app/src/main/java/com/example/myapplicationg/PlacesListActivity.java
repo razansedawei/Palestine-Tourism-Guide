@@ -34,6 +34,7 @@ public class PlacesListActivity extends AppCompatActivity implements CompoundBut
     private SliderAdapterExample adapter;
     Button toPlace;
     Button goToPlaceLocation;
+    String firstPlaceName = "Jamal Abdul Nasser Park";
     ScaleAnimation scaleAnimation = new ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF, 0.7f, Animation.RELATIVE_TO_SELF, 0.7f);
     BounceInterpolator bounceInterpolator = new BounceInterpolator();
     FirebaseFirestore db;
@@ -162,6 +163,7 @@ public class PlacesListActivity extends AppCompatActivity implements CompoundBut
 
     public void openplacesActivity(){
         Intent intent = new Intent(this, PlaceActvity.class);
+        intent.putExtra("FirstPlaceName",firstPlaceName);
         startActivity(intent);
     }
 
