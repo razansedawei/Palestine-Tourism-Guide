@@ -11,6 +11,7 @@ import android.widget.RatingBar;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -28,6 +29,10 @@ public class PlaceActvity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_actvity);
+
+        BottomNavigationView bottomNavigationView =findViewById(R.id.navigation);
+        bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationBarClickListener(this));
 
         mPlace=findViewById(R.id.buttonPlace);
         mPlace.setOnClickListener(new View.OnClickListener() {

@@ -25,6 +25,7 @@ public class CityActivity extends AppCompatActivity {
     AppCompatImageButton goToPlacesbtn;
     AppCompatImageButton goToWeatherbtn;
     AppCompatImageButton goToTaxibtn;
+    AppCompatImageButton goToThingToDo;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -68,6 +69,13 @@ public class CityActivity extends AppCompatActivity {
                 openPlacesActivity();
             }
         });
+        goToPlacesbtn = findViewById(R.id.bb5);
+        goToPlacesbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openThingtodoActivity();
+            }
+        });
         goToHotelbtn = findViewById(R.id.bb3);
         goToHotelbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +102,12 @@ public class CityActivity extends AppCompatActivity {
 
 
     }
+
+    private void openThingtodoActivity() {
+        Intent intent = new Intent(this, ThingToDo.class);
+        startActivity(intent);
+    }
+
     public void openMapActivity(MarkerOptions center, ArrayList markers){
 
         Intent intent = new Intent(this, MapActivity.class);

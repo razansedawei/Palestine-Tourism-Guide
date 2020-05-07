@@ -11,6 +11,7 @@ import android.widget.RatingBar;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -29,6 +30,9 @@ public class RestaurantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant);
 
+        BottomNavigationView bottomNavigationView =findViewById(R.id.navigation);
+        bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationBarClickListener(this));
 
         mRest=findViewById(R.id.buttonRest);
         mRest.setOnClickListener(new View.OnClickListener() {

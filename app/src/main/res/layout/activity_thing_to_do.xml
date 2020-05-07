@@ -31,7 +31,7 @@ tools:context=".MainActivity">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
+                android:layout_height="150dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="16dp"
@@ -44,80 +44,34 @@ tools:context=".MainActivity">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="200dp">
 
-                    <Button
-                        android:id="@+id/b2"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/white"
-                        android:text="villa sama nablus"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerInParent="true"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="24sp"
-                        style="?android:attr/borderlessButtonStyle"/>
+                    <ImageView
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:src="@drawable/samanablus"
+                        android:layout_marginRight="130dp"
+                        android:paddingBottom="25dp"/>
 
-                    <ToggleButton
-                        android:id="@+id/button_favorite_b1"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/button_favorite"
-                        android:checked="false"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerInParent="true"
-                        android:text="villa sama nablus"
-                        android:textOff=""
-                        android:textColor="@android:color/transparent"
-                        android:textOn="villa sama nablus" />
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp"
-                app:cardUseCompatPadding="true">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <Button
+                    <TextView
                         android:id="@+id/b1"
-                        android:layout_width="200dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@android:color/white"
-                        android:text="Yildiz Palace Hotel"
                         android:layout_alignParentLeft="true"
-                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="185dp"
+                        android:background="@android:color/white"
+                        android:text="sama nablus"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="24sp"
-                        style="?android:attr/borderlessButtonStyle"/>
+                        android:textSize="20sp" />
 
-                    <ToggleButton
-                        android:id="@+id/button_favorite_b2"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/button_favorite"
-                        android:checked="false"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerInParent="true"
-                        android:text="Yildiz Palace Hotel"
-                        android:textOff=""
-                        android:textColor="@android:color/transparent"
-                        android:textOn="Yildiz Palace Hotel" />
+
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
+                android:layout_height="150dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="16dp"
@@ -130,79 +84,114 @@ tools:context=".MainActivity">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="200dp">
 
-                    <Button
+                    <ImageView
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:src="@drawable/bethan"
+                        android:layout_marginRight="130dp"/>
+
+                    <TextView
+                        android:id="@+id/b2"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="185dp"
+                        android:background="@android:color/white"
+                        android:text="butterfiles"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp" />
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+                    <ImageView
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:src="@drawable/saleem"
+                        android:layout_marginRight="130dp"
+                        android:paddingBottom="25dp"/>
+
+                    <TextView
                         android:id="@+id/b3"
-                        android:layout_width="281dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@android:color/white"
-                        android:text="GoldenTree Hotel"
                         android:layout_alignParentLeft="true"
-                        android:layout_centerInParent="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="185dp"
+                        android:background="@android:color/white"
+                        android:text="saleem effendi hotel"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="24sp"
-                        style="?android:attr/borderlessButtonStyle"/>
+                        android:textSize="20sp" />
 
-                    <ToggleButton
-                        android:id="@+id/button_favorite_b3"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/button_favorite"
-                        android:checked="false"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerInParent="true"
-                        android:text="GoldenTree Hotel"
-                        android:textOff=""
-                        android:textColor="@android:color/transparent"
-                        android:textOn="GoldenTree Hotel" />
+
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
+                android:layout_height="150dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
+
                 app:cardCornerRadius="8dp"
                 app:cardElevation="2dp"
                 app:cardUseCompatPadding="true">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="200dp">
 
-                    <Button
+                    <ImageView
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:src="@drawable/kfc"
+                        android:layout_marginRight="130dp"
+                        android:paddingBottom="25dp"/>
+
+                    <TextView
                         android:id="@+id/b4"
-                        android:layout_width="200dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@android:color/white"
-                        android:text="GoldenRose Hotel"
                         android:layout_alignParentLeft="true"
-                        android:layout_centerInParent="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="185dp"
+                        android:background="@android:color/white"
+                        android:text="Kfc"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="24sp"
-                        style="?android:attr/borderlessButtonStyle"/>
+                        android:textSize="20sp" />
 
-                    <ToggleButton
-                        android:id="@+id/button_favorite_b4"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/button_favorite"
-                        android:checked="false"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerInParent="true"
-                        android:text="GoldenRose Hotel"
-                        android:textOff=""
-                        android:textColor="@android:color/transparent"
-                        android:textOn="GoldenRose Hotel" />
+
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
+                android:layout_height="150dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="16dp"
@@ -215,75 +204,29 @@ tools:context=".MainActivity">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="200dp">
 
-                    <Button
+                    <ImageView
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:src="@drawable/pizza"
+                        android:layout_marginRight="130dp"
+                        android:paddingBottom="25dp"/>
+
+                    <TextView
                         android:id="@+id/b5"
-                        android:layout_width="200dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@android:color/white"
-                        android:text="Iuqman Home"
                         android:layout_alignParentLeft="true"
-                        android:layout_centerInParent="true"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="24sp"
-                        style="?android:attr/borderlessButtonStyle"/>
-
-                    <ToggleButton
-                        android:id="@+id/button_favorite_b5"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/button_favorite"
-                        android:checked="false"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerInParent="true"
-                        android:text="Iuqman Home"
-                        android:textOff=""
-                        android:textColor="@android:color/transparent"
-                        android:textOn="Iuqman Home" />
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp"
-                app:cardUseCompatPadding="true">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <Button
-                        android:id="@+id/b6"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="185dp"
                         android:background="@android:color/white"
-                        android:text="saleem effendi hotel"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerInParent="true"
+                        android:text="Pizza house"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="24sp"
-                        style="?android:attr/borderlessButtonStyle"/>
+                        android:textSize="20sp" />
 
-                    <ToggleButton
-                        android:id="@+id/button_favorite_b6"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/button_favorite"
-                        android:checked="false"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerInParent="true"
-                        android:text="saleem effendi hotel"
-                        android:textOff=""
-                        android:textColor="@android:color/transparent"
-                        android:textOn="saleem effendi hotel" />
+
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
