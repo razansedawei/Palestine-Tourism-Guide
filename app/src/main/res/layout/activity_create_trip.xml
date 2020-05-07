@@ -16,13 +16,13 @@
         />
 
     <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/number_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="148dp"
         android:layout_below="@+id/text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:solidColor="@color/colorPrimaryDark"/>
+        android:solidColor="@color/colorPrimary" />
 
     <Button
         android:id="@+id/btnOrder"
@@ -32,7 +32,7 @@
         android:layout_below="@id/number_picker"
         android:text="Choose a city:"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="338dp" />
+        android:layout_marginTop="320dp" />
 
     <TextView
         android:id="@+id/tvItemSelected"
@@ -56,8 +56,6 @@
         android:layout_centerVertical="true"
         android:gravity="center"
         android:text="OK"
-        android:paddingTop="30dp"
-
         />
 
 
