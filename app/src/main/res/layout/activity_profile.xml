@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:background="#ffffff"
         app:menu="@menu/profile_settings"
-        android:paddingLeft="250dp" />
+        android:paddingLeft="280dp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -52,8 +52,8 @@
                 <ImageView
                     android:id="@+id/profpic"
                     android:layout_marginTop="50px"
-                    android:layout_width="470px"
-                    android:layout_height="450px"
+                    android:layout_width="420px"
+                    android:layout_height="400px"
                     android:background="#FF008577"
                     android:src="@drawable/ic_stat_name"/>
                 <TextView

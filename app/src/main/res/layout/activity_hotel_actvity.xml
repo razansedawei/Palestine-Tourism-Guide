@@ -5,8 +5,7 @@
     android:id="@+id/comment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/bioprofile">
+    tools:context=".MainActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
@@ -41,12 +40,11 @@
         android:id="@+id/textnameforHotel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:paddingLeft="20dp"
         android:text="       here will put name"
         android:textColor="#FFFFFF"
         android:textSize="25dp"
-
         android:background="@drawable/fovprofile"/>
 
     <RatingBar
@@ -54,6 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageSlider"
+        android:layout_marginTop="44dp"
         android:numStars="5"
         android:paddingTop="20dp"
         android:stepSize="1" />
@@ -65,7 +64,7 @@
         android:layout_below="@+id/rating_bar"
         android:layout_alignEnd="@+id/rating_bar"
         android:layout_alignRight="@+id/rating_bar"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="38dp"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
         android:background="@drawable/fovprofile"

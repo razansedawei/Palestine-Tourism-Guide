@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/profilebackground"
     tools:context=".MainActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -48,8 +49,9 @@
             android:layout_weight="8"
             android:orientation="vertical">
             <Button
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_marginBottom="30dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_gravity="center_horizontal"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp"

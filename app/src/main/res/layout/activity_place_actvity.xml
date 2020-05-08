@@ -39,7 +39,7 @@
         android:id="@+id/textnameforPlace"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:paddingLeft="20dp"
         android:text="       here will put name"
         android:textColor="#FFFFFF"
@@ -51,6 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageSlider"
+        android:layout_marginTop="52dp"
         android:numStars="5"
         android:paddingTop="20dp"
         android:stepSize="1" />
@@ -62,13 +63,13 @@
         android:layout_below="@+id/rating_bar"
         android:layout_alignEnd="@+id/rating_bar"
         android:layout_alignRight="@+id/rating_bar"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginRight="38dp"
         android:background="@drawable/fovprofile"
         android:text="See The review"
-        android:textColorHighlight="#FFFFFF"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF" />
 
 
 </RelativeLayout>
