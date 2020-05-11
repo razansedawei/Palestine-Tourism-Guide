@@ -1,18 +1,32 @@
 package com.example.myapplicationg;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.util.TypedValue;
 import android.widget.Button;
 import android.view.View;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CreateTripActivity extends AppCompatActivity {
     TextView textView;
@@ -22,6 +36,10 @@ public class CreateTripActivity extends AppCompatActivity {
     String[] listItems;
     boolean[] checkedItems;
     ArrayList<Integer> mUserItems = new ArrayList<>();
+    ArrayList<String> selectedCities = new ArrayList<String>();
+    HashMap<String, ArrayList<String>> trips = new HashMap<String, ArrayList<String>>();
+    FirebaseFirestore db;
+    NumberPicker numberPicker;
 
 
     @Override
@@ -29,12 +47,23 @@ public class CreateTripActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_trip);
 
+        db= FirebaseFirestore.getInstance();
+        db.collection("Trips").get().addOnCompleteListener(
+                new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                trips.put(document.getId(),(ArrayList<String>)document.get("trips"));
+                            }
+                        }
+                    }
+                });
 
-
-        NumberPicker numberPicker=findViewById(R.id.number_picker);
+        numberPicker=findViewById(R.id.number_picker);
         textView=findViewById(R.id.text);
         numberPicker.setMinValue(1);
-        numberPicker.setMaxValue(10);
+        numberPicker.setMaxValue(6);
 
         numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
@@ -78,7 +107,9 @@ public class CreateTripActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
                         String item = "";
+                        selectedCities.clear();
                         for (int i = 0; i < mUserItems.size(); i++) {
+                            selectedCities.add(listItems[mUserItems.get(i)]);
                             item = item + listItems[mUserItems.get(i)];
                             if (i != mUserItems.size() - 1) {
                                 item = item + ", ";
@@ -101,6 +132,7 @@ public class CreateTripActivity extends AppCompatActivity {
                         for (int i = 0; i < checkedItems.length; i++) {
                             checkedItems[i] = false;
                             mUserItems.clear();
+                            selectedCities.clear();
                             mItemSelected.setText("");
                         }
                     }
@@ -114,20 +146,64 @@ public class CreateTripActivity extends AppCompatActivity {
         creatTrip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showCreatDialog();
+                showCreateDialog();
             }
 
         });
 
-
-
-
-
     }
 
-    public void showCreatDialog(){
+    public void showCreateDialog(){
         final Dialog dialog=new Dialog(CreateTripActivity.this);
         dialog.setContentView(R.layout.dialog_creat);
+        LinearLayout layout = dialog.findViewById(R.id.trips_list);
+        layout.removeAllViews();
+
+        int daysPerCity = numberPicker.getValue() / selectedCities.size();
+        int remainingDays= numberPicker.getValue() % selectedCities.size();
+        for(int i=0; i< selectedCities.size();i++){
+            TextView cityName = new TextView(dialog.getContext());
+            cityName.setText("At "+selectedCities.get(i));
+            cityName.setTextColor(Color.WHITE);
+            cityName.setPadding(10,10,10,10);
+            cityName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+            if(i!=0){
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                params.setMargins(0,30,0,0);
+                cityName.setLayoutParams(params);
+            }
+            layout.addView(cityName);
+
+            if(i==selectedCities.size()-1){
+                daysPerCity += remainingDays;
+            }
+            for(int j=0; j<daysPerCity; j++) {
+                TextView dayNum = new TextView(dialog.getContext());
+                dayNum.setText("Day "+ (j+1)+":");
+                dayNum.setPadding(10,10,10,10);
+                dayNum.setTextColor(Color.WHITE);
+                dayNum.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                if(j!=0){
+                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    params.setMargins(0,30,0,0);
+                    dayNum.setLayoutParams(params);
+                }
+                layout.addView(dayNum);
+
+                TextView trip = new TextView(dialog.getContext());
+                trip.setText(trips.get(selectedCities.get(i)).get(j));
+                trip.setPadding(10,10,10,10);
+                trip.setTextColor(Color.WHITE);
+                trip.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
+                layout.addView(trip);
+
+
+            }
+
+
+        }
+
+
         Button btn=dialog.findViewById(R.id.dialog_hide_btn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
