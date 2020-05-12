@@ -116,6 +116,16 @@ public class RegisterActivity extends AppCompatActivity {
                             db.collection("favoriteList").document(userID)
                                     .set(userFavorite);
 
+
+                            Map<String, ArrayList<String>> userRating = new HashMap<>();
+                            userRating.put("place Rating", new ArrayList<String>());
+                            userRating.put("restaurant Rating", new ArrayList<String>());
+                            userRating.put("hotel Rating", new ArrayList<String>());
+                            db.collection("Rating").document(userID)
+                                    .set(userRating);
+
+
+
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
                             Toast.makeText(RegisterActivity.this, "Error!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

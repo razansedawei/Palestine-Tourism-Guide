@@ -92,6 +92,8 @@ public class HotelListActvity extends AppCompatActivity implements CompoundButto
                 });
 
 
+
+
         sliderView = findViewById(R.id.imageSlider);
 
         adapter = new SliderAdapterExample(this);

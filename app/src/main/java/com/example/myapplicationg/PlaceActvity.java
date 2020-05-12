@@ -8,22 +8,31 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PlaceActvity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
     RatingBar ratingBar;
-    Button mPlace;
+    Button mPlace , mRating;
     TextView tvName1;
+    FirebaseFirestore db;
+    String userID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +57,27 @@ public class PlaceActvity extends AppCompatActivity {
 
         //rating
         ratingBar=findViewById(R.id.rating_bar);
+        mRating=findViewById(R.id.buttonRating2);
+
+        db= FirebaseFirestore.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null) {
+            userID = user.getUid();
+        }
+
+        mRating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s = String.valueOf(ratingBar.getRating());
+                Toast.makeText(getApplicationContext(), s+"  Star.", Toast.LENGTH_SHORT).show();
+
+                Map<String, Object> userRating = new HashMap<>();
+                userRating.put("Rating Place", s);
+                db.collection("PlaceRating").document(userID)
+                        .set(userRating);
+            }
+        });
+
         sliderView = findViewById(R.id.imageSlider);
 
         adapter = new SliderAdapterExample(this);

@@ -1,29 +1,43 @@
 package com.example.myapplicationg;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.core.Tag;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class HotelActvity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
     RatingBar ratingBar;
     TextView tvName1;
-    Button mcomment;
+    Button mcomment, mRating;
+    FirebaseFirestore db;
+    String userID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +61,28 @@ public class HotelActvity extends AppCompatActivity {
 
         //rating
         ratingBar = findViewById(R.id.rating_bar);
+        mRating=findViewById(R.id.buttonRating1);
+
+        db= FirebaseFirestore.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null) {
+            userID = user.getUid();
+        }
+
+        mRating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s = String.valueOf(ratingBar.getRating());
+                Toast.makeText(getApplicationContext(), s+"  Star.", Toast.LENGTH_SHORT).show();
+
+                Map<String, Object> userRating = new HashMap<>();
+                userRating.put("Rating", s);
+                db.collection("HotelRating").document(userID)
+                        .set(userRating);
+            }
+        });
+
+
         sliderView = findViewById(R.id.imageSlider);
 
         adapter = new SliderAdapterExample(this);

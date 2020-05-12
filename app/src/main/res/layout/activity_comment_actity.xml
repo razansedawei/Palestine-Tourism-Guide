@@ -6,32 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".CommentActity">
 
-    <ListView
-        android:id="@+id/Listcomment"
-        android:layout_width="464dp"
-        android:layout_height="675dp"/>
 
     <EditText
         android:id="@+id/commenttext"
-        android:layout_width="464dp"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Listcomment"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginEnd="-3dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="-3dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Add a comment"
+        android:hint="Add a comment"
         android:textColor="#75000000"
         android:textColorHighlight="#9C27B0"
-        android:textColorHint="#FC0C0C0C"
+        android:textColorHint="@color/colorPrimary"
         android:visibility="visible"
         tools:layout_editor_absoluteX="21dp"
         tools:layout_editor_absoluteY="682dp" />
-
-
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -44,5 +41,19 @@
         android:layout_marginBottom="13dp"
         android:background="@drawable/bioprofile"
         android:src="@drawable/ic_send_black_24dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="393dp"
+        android:layout_height="606dp"
+        android:layout_below="@+id/commenttext"
+        android:layout_alignStart="@+id/commenttext"
+        android:layout_alignLeft="@+id/commenttext"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp" />
 
 </RelativeLayout>

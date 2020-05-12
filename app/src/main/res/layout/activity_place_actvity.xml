@@ -40,7 +40,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:paddingLeft="20dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="3dp"
         android:text="       here will put name"
         android:textColor="#FFFFFF"
         android:textSize="25dp"
@@ -57,19 +58,35 @@
         android:stepSize="1" />
 
     <Button
+        android:id="@+id/buttonRating2"
+        android:layout_width="146dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rating_bar"
+        android:layout_alignEnd="@+id/rating_bar"
+        android:layout_alignRight="@+id/rating_bar"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginRight="83dp"
+        android:background="@drawable/fovprofile"
+        android:text="Add the Rating"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF" />
+
+    <Button
         android:id="@+id/buttonPlace"
         android:layout_width="188dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rating_bar"
         android:layout_alignEnd="@+id/rating_bar"
         android:layout_alignRight="@+id/rating_bar"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginRight="38dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
         android:background="@drawable/fovprofile"
         android:text="See The review"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF" />
+
 
 
 </RelativeLayout>
