@@ -28,7 +28,7 @@ public class RestaurantActivity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
     RatingBar ratingBar;
-    Button mRest , mRating;
+    Button  mRating;
     TextView tvName1;
     FirebaseFirestore db;
     String userID;
@@ -46,13 +46,7 @@ public class RestaurantActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationBarClickListener(this));
 
-        mRest=findViewById(R.id.buttonRest);
-        mRest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Addcomment();
-            }
-        });
+
 
         //rating
         ratingBar=findViewById(R.id.rating_bar);
@@ -118,9 +112,6 @@ public class RestaurantActivity extends AppCompatActivity {
     }
 
 
-    private void Addcomment() {
-        Intent comment = new Intent(this, CommentActity.class);
-        startActivity(comment);
-    }
+
 
 }

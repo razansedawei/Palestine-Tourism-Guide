@@ -28,7 +28,7 @@ public class PlaceActvity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
     RatingBar ratingBar;
-    Button mPlace , mRating;
+    Button  mRating;
     TextView tvName1;
     FirebaseFirestore db;
     String userID;
@@ -46,13 +46,7 @@ public class PlaceActvity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationBarClickListener(this));
 
-        mPlace=findViewById(R.id.buttonPlace);
-        mPlace.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Addcomment();
-            }
-        });
+
 
 
         //rating
@@ -121,8 +115,5 @@ public class PlaceActvity extends AppCompatActivity {
 
 
 
-    private void Addcomment() {
-        Intent comment = new Intent(this, CommentActity.class);
-        startActivity(comment);
-    }
+
 }

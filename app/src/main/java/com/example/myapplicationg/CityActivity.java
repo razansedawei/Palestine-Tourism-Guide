@@ -26,6 +26,9 @@ public class CityActivity extends AppCompatActivity {
     AppCompatImageButton goToWeatherbtn;
     AppCompatImageButton goToTaxibtn;
     AppCompatImageButton goToThingToDo;
+    AppCompatImageButton goToHospitalbtn;
+    AppCompatImageButton goToPolicebtn;
+
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -95,6 +98,38 @@ public class CityActivity extends AppCompatActivity {
                 markers.add( new MarkerOptions().position(new LatLng(32.2264684, 35.2685215)).title("Jawwal Taxi").snippet("Tel: +970 9 234 3880"));
                 markers.add(  new MarkerOptions().position(new LatLng(32.2243896, 35.2562793)).title("Western Transport Service"));
                 markers.add(  new MarkerOptions().position(new LatLng(32.2271493, 35.2487309)).title("Al-Jazeera Taxi").snippet("Tel: +970 9 233 3702"));
+
+                openMapActivity(city, markers);
+            }
+        });
+        goToHospitalbtn = findViewById(R.id.bb7);
+        goToHospitalbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                MarkerOptions city = new MarkerOptions().position(new LatLng(32.2264821,35.2685216)).title("Nablus");
+
+                ArrayList<MarkerOptions> markers = new ArrayList<MarkerOptions>();
+                markers.add(new MarkerOptions().position(new LatLng(32.2219807,35.2656868)).title("Nablus Al_Takhasosi Hospital").snippet("Tel:+970 9 234 1501"));
+                markers.add( new MarkerOptions().position(new LatLng(32.2226694,35.2569616)).title("Al_Enjele Hospital").snippet("Tel:+972 9-238-3818"));
+                markers.add(  new MarkerOptions().position(new LatLng(32.2229037,35.26446)).title("National Hospital").snippet("Tel:+970 9 238 3599"));
+                markers.add(  new MarkerOptions().position(new LatLng(32.239199,35.2481188)).title("Najah University Hospital").snippet("Tel:+970 9 233 1471"));
+                markers.add(  new MarkerOptions().position(new LatLng(32.2674362,35.2105235)).title("Al-Zakat Hospital").snippet("Tel:+970 9 268 0680"));
+
+                openMapActivity(city, markers);
+            }
+        });
+
+        goToPolicebtn = findViewById(R.id.bb8);
+        goToPolicebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                MarkerOptions city = new MarkerOptions().position(new LatLng(32.2264821,35.2685216)).title("Nablus");
+
+                ArrayList<MarkerOptions> markers = new ArrayList<MarkerOptions>();
+                markers.add(new MarkerOptions().position(new LatLng(32.2205906,35.2490296)).title(" Police Nablus"));
+
 
                 openMapActivity(city, markers);
             }

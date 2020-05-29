@@ -34,7 +34,7 @@ public class HotelActvity extends AppCompatActivity {
     private SliderAdapterExample adapter;
     RatingBar ratingBar;
     TextView tvName1;
-    Button mcomment, mRating;
+    Button  mRating;
     FirebaseFirestore db;
     String userID;
 
@@ -51,13 +51,7 @@ public class HotelActvity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationBarClickListener(this));
 
-        mcomment=findViewById(R.id.buttonhotel);
-        mcomment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Addcomment();
-            }
-        });
+
 
         //rating
         ratingBar = findViewById(R.id.rating_bar);
@@ -124,8 +118,5 @@ public class HotelActvity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void Addcomment(){
-        Intent comment1 = new Intent(this, CommentActity.class);
-        startActivity(comment1);
-    }
+
 }

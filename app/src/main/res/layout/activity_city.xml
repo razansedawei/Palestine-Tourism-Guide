@@ -33,7 +33,7 @@
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="300dp"
         android:id="@+id/G"
         android:columnCount="3"
         android:rowCount="2"
@@ -220,6 +220,65 @@
                     android:textColor="@color/cardview_light_background"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/bb7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_local_hospital_black_24dp"
+                    android:text="Tourism"
+                    android:background="@color/colorPrimaryDark"
+                    android:textColor="@color/cardview_light_background"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/bb8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_local_car_wash_black_24dp"
+                    android:text="Tourism"
+                    android:background="@color/colorPrimaryDark"
+                    android:textColor="@color/cardview_light_background"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
     </GridLayout>
     <Button
         android:id="@+id/map_activity_button"
